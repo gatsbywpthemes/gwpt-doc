@@ -1,10 +1,10 @@
-import nightOwl from "@theme-ui/prism/presets/night-owl.json";
-import colors from "./colors";
-import headings from "./headings";
+import prismTheme from "@theme-ui/prism/presets/shades-of-purple.json"
+import colors from "./colors"
+import headings from "./headings"
 
-const transition = "0.2s ease-out";
+const transition = "0.2s ease-out"
 const systemFonts =
-  "-apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif";
+  "-apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif"
 
 export default {
   initialColorMode: `dark`,
@@ -12,21 +12,21 @@ export default {
   fonts: {
     body: systemFonts,
     heading: systemFonts,
-    monospace: "Menlo, monospace"
+    monospace: "Menlo, monospace",
   },
   fontSizes: [12, 14, 16, 24, 28, 36, 48, 64],
   fontWeights: {
     body: 400,
     heading: 700,
-    bold: 700
+    bold: 700,
   },
   lineHeights: {
     body: 1.5,
-    heading: 1.125
+    heading: 1.125,
   },
   letterSpacings: {
     body: "normal",
-    caps: "0.2em"
+    caps: "0.2em",
   },
   breakpoints: [
     ["phone_small", 320],
@@ -35,7 +35,7 @@ export default {
     ["tablet", 735],
     ["desktop", 1070],
     ["desktop_medium", 1280],
-    ["desktop_large", 1440]
+    ["desktop_large", 1440],
   ],
   transition,
   styles: {
@@ -43,49 +43,49 @@ export default {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
-      ...headings
+      ...headings,
     },
     ...headings,
     p: {
-      my: 4
+      my: 4,
     },
     a: {
       color: "secondary",
       transition: `color ${transition}`,
       ":hover,:focus": {
-        color: "text"
-      }
+        color: "text",
+      },
     },
     pre: {
-      ...nightOwl,
+      ...prismTheme,
       fontFamily: `"Operator Mono", monospace`,
-      fontSize: "0.9rem",
+      fontSize: "1.2rem",
       tabSize: 4,
       hyphens: `none`,
       overflow: `auto`,
       borderRadius: 6,
-      p: 3,
-      my: 4
+      p: 4,
+      my: 4,
     },
     inlineCode: {
       color: `primary`,
       background: `rgba(233, 218, 172, 0.15)`,
       borderRadius: 3,
       px: `0.4rem`,
-      py: `0.2rem`
+      py: `0.2rem`,
     },
     table: {
       width: "100%",
       borderCollapse: "separate",
-      borderSpacing: 0
+      borderSpacing: 0,
     },
     th: {
       textAlign: "left",
-      borderBottomStyle: "solid"
+      borderBottomStyle: "solid",
     },
     td: {
       textAlign: "left",
-      borderBottomStyle: "solid"
-    }
-  }
-};
+      borderBottomStyle: "solid",
+    },
+  },
+}

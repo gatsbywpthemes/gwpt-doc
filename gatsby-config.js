@@ -1,23 +1,23 @@
 module.exports = {
   siteMetadata: {
-    title: `Document by Code Bushi`,
-    name: `Code Bushi`,
+    title: `GatsbyWpThemes Doc`,
+    name: `GatsbyWpThemes Doc`,
     siteUrl: `https://gatsby-theme-document.netlify.com`,
-    description: `This is my description that will be used in the meta tags and important for search results`,
+    description: `Gatsby WordPress themes Docs`,
     social: [
       {
         name: `github`,
-        url: `https://github.com/codebushi/gatsby-theme-document`
+        url: `https://github.com/codebushi/gatsby-theme-document`,
       },
       {
         name: `twitter`,
-        url: `https://twitter.com/HuntaroSan`
-      }
+        url: `https://twitter.com/alexadark`,
+      },
     ],
     sidebarConfig: {
       forcedNavOrder: ["/introduction", "/codeblock"],
-      ignoreIndex: true
-    }
+      ignoreIndex: true,
+    },
   },
-  plugins: [{ resolve: `gatsby-theme-document` }]
-};
+  plugins: [{ resolve: `gatsby-theme-document` }],
+}
