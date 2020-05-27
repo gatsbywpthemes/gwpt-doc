@@ -15,7 +15,7 @@ module.exports = {
       },
     ],
     sidebarConfig: {
-      forcedNavOrder: ["/introduction", "/themes", "/plugins"],
+      forcedNavOrder: ["/introduction", "/themes"],
       ignoreIndex: true,
     },
   },
