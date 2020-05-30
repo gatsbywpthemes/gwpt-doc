@@ -4,9 +4,10 @@ description: "Gatsby WP Themes Documentation."
 ---
 
 Welcome to our documentation, you can find here the general documentaion that apply to all of our themes!
+
 in the other sections you will find the documentation specific to themes, plugins and starters
 
-## 🚀 All that you need to get it running.
+# 🚀 All that you need to get it running.
 
 ## Setting up your WordPress Website.
 
@@ -25,3 +26,41 @@ You will need a running WordPress installation. Gatsby fetches the data from you
 - Configure your settings
 - that's it!
 - it includes some dummy post and pages to guide you
+
+### Manual way
+
+- Install the required themes: the gatsby-wp one, and the child theme corresponding to the gatsby theme you want to use.(they are all in the package that you have received in your welcome mail)
+- Install the required plugins
+
+  - [WPGatsby](https://github.com/gatsbyjs/wp-gatsby)
+  - [WPGraphQL](https://github.com/wp-graphql/wp-graphql/tree/release/v0.9.1)
+
+* <strong>Permalinks structure</strong>
+
+  In order that the plugin works correctly, your WordPress installation must
+  have pretty permalinks enabled (commonly oprovided by the majority of hosting
+  servives). Also, The permalink structure **must not** be the default (plain,
+  `http://example.com/?p=123.`) WordPress permalink structure. This can be done
+  via your WordPress admin area in Settings > Permalinks.
+
+## Setting up your Gatsby Site.
+
+### Set Up Your Development Environment
+
+go to [Gastby documentation](https://www.gatsbyjs.org/tutorial/part-zero/) and prepare your computer
+
+### Installing your Gatsby starter
+
+Choose the starter you want to use among the ones you have received inside your welcome mail
+
+- If you are going to build something totally custom, we recomend using the starter data one: it looks exactly like the starter, but only the the gatsby-theme-blog-data is installed as theme, all the code from the gatsby-theme-wp-blog-starter is in the site, so you can modify everything easely without shadowing
+
+1. Unzip your starter.
+2. Open the `.nprmc` file and replace `YOU_SECRET_API_KEY` string by your token that you can find in your welcome mail
+3. Run `yarn` command from your starter directory, in order to install all the npm modules
+4. [Configure your Gatsby site.](#gatsby-config) Most importantly, provide the url of your WordPress source website.
+5. Run `gatsby develop` to [start the developement server](https://www.gatsbyjs.org/docs/gatsby-cli/#develop)
+
+### Configure your Gatsby site - config.js
+
+In order to setup your Gatsby website, you will need to edit his configuration file, `config.js` located in the root of your project.
