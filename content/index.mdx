@@ -16,7 +16,7 @@ You will need a running WordPress installation. Gatsby fetches the data from you
 ### Automated way
 
 - Make a wordpress fresh installation on your hosting
-- Install the free plugin https://wordpress.org/plugins/all-in-one-wp-migration/
+- Install the free plugin <a href="https://wordpress.org/plugins/all-in-one-wp-migration/" target="_blank">All In One WP Migration</a>
 - Import the package corresponding to the theme you are planning to use (all of our a themes work with the same parent theme, and each theme work with a specific child theme)
 
   <img src="./import.png" />
@@ -24,6 +24,9 @@ You will need a running WordPress installation. Gatsby fetches the data from you
 - Login with admin / gatsbyWpThemes
 - Create a new user with secure credentials and delete the admin one
 - Configure your settings
+  - Make sure the permalinks are in the right format: if they are in plain, switch to Post name <img src="https://i.imgur.com/GnIhOQ5.gif" width="600"/>
+  - Go to Settings / reading and choose the number of posts per page in "Blog pages show at most"
+  - make sure that "Discourage search engine from indexing this site" is checked ![](https://i.imgur.com/7gJYiSa.png)
 - that's it!
 - it includes some dummy post and pages to guide you
 
@@ -32,14 +35,21 @@ You will need a running WordPress installation. Gatsby fetches the data from you
 - Install the required themes: the gatsby-wp one, and the child theme corresponding to the gatsby theme you want to use.(they are all in the package that you have received in your welcome mail)
 - Install the required plugins
 
-  - [WPGatsby](https://github.com/gatsbyjs/wp-gatsby)
-  - [WPGraphQL](https://github.com/wp-graphql/wp-graphql/tree/release/v0.9.1)
+  - <a href="https://github.com/gatsbyjs/wp-gatsby" target="_blank">
+      WPGatsby
+    </a>
+  - <a
+      href="https://github.com/wp-graphql/wp-graphql/tree/release/v0.9.1"
+      target="_blank"
+    >
+      WPGraphQL
+    </a>
 
 * <strong>Permalinks structure</strong>
 
   In order that the plugin works correctly, your WordPress installation must
-  have pretty permalinks enabled (commonly oprovided by the majority of hosting
-  servives). Also, The permalink structure **must not** be the default (plain,
+  have pretty permalinks enabled (commonly provided by the majority of hosting
+  services). Also, The permalink structure **must not** be the default (plain,
   `http://example.com/?p=123.`) WordPress permalink structure. This can be done
   via your WordPress admin area in Settings > Permalinks.
 
@@ -47,19 +57,20 @@ You will need a running WordPress installation. Gatsby fetches the data from you
 
 ### Set Up Your Development Environment
 
-go to [Gastby documentation](https://www.gatsbyjs.org/tutorial/part-zero/) and prepare your computer
+go to <a href="https://www.gatsbyjs.org/tutorial/part-zero/" target="_blank">Gastby documentation</a> and prepare your computer
 
 ### Installing your Gatsby starter
 
 Choose the starter you want to use among the ones you have received inside your welcome mail
 
-- If you are going to build something totally custom, we recomend using the starter data one: it looks exactly like the starter, but only the the gatsby-theme-blog-data is installed as theme, all the code from the gatsby-theme-wp-blog-starter is in the site, so you can modify everything easely without shadowing
+- If you are going to build something totally custom, we recomend using the starter data: it looks exactly like the starter, but only the gatsby-theme-blog-data is installed as theme, all the code from the gatsby-theme-wp-blog-starter is in the site, so you can modify everything easely without shadowing, while you have all your components very well organized
 
 1. Unzip your starter.
 2. Open the `.nprmc` file and replace `YOU_SECRET_API_KEY` string by your token that you can find in your welcome mail
 3. Run `yarn` command from your starter directory, in order to install all the npm modules
-4. [Configure your Gatsby site.](#gatsby-config) Most importantly, provide the url of your WordPress source website.
-5. Run `gatsby develop` to [start the developement server](https://www.gatsbyjs.org/docs/gatsby-cli/#develop)
+4. Configure your Gatsby site.
+   Most importantly, provide the url of your WordPress source website.
+5. Run `gatsby develop` to start the developement server
 
 ### Configure your Gatsby site - config.js
 
