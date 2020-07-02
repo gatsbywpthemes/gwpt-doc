@@ -32,11 +32,11 @@ const SocialIcons = () => {
   const socialOptions = result.allSite.edges[0].node.siteMetadata.social
   return (
     <StyledSocialIcons>
-      {socialOptions.map((option) => (
+      {/* {socialOptions.map((option) => (
         <SocialLinks key={option.name} href={option.url}>
           <Icon icon={icons[option.name]} size={22} />
         </SocialLinks>
-      ))}
+      ))} */}
     </StyledSocialIcons>
   )
 }
