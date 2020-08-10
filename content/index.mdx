@@ -66,7 +66,7 @@ Choose the starter you want to use among the ones you have received inside your 
 - If you are going to build something totally custom, we recomend using the starter data: it looks exactly like the starter, but only the gatsby-theme-blog-data is installed as theme, all the code from the gatsby-theme-wp-blog-starter is in the site, so you can modify everything easely without shadowing, while you have all your components very well organized
 
 1. Unzip your starter.
-2. Open the `.nprmc` file and replace `YOU_SECRET_API_KEY` string by your token that you can find in your welcome mail
+2. Open the `.nprmc` file and replace `YOU-AUTH-TOKEN` string by your token that you can find in your welcome mail
 3. Run `yarn` command from your starter directory, in order to install all the npm modules
 4. Configure your Gatsby site.
    Most importantly, provide the url of your WordPress source website.
@@ -87,7 +87,6 @@ const config = {
   postsPath: ``,
   paginationPrefix: `page`,
   addWordPressComments: true,
-  addDisqusComments: false,
   menuName: "main",
   siteUrl: "https://example.com",
   title: `Blog Title Placeholder`,
