@@ -3,32 +3,43 @@ title: "Gatsby WP Themes Documentation"
 description: "Gatsby WP Themes Documentation."
 ---
 
-Welcome to our documentation, you can find here the general documentaion that apply to all of our themes!
+Welcome to our documentation. You can find here the general documentation that applies to all of our themes!
 
-in the other sections you will find the documentation specific to themes, plugins and starters
+In the Themes and Plugins sections, you will find the information specific to particular items.
 
 # 🚀 All that you need to get it running.
 
 ## Setting up your WordPress Website.
 
-You will need a running WordPress installation. Gatsby fetches the data from your WordPress website.
+You will need a running WordPress installation. Your content comes from your WordPress website.
+Gatsby fetches the data from your WordPress website.
 
 ### Automated way
 
-- Make a wordpress fresh installation on your hosting
-- Install the free plugin <a href="https://wordpress.org/plugins/all-in-one-wp-migration/" target="_blank">All In One WP Migration</a>
-- Import the package corresponding to the theme you are planning to use (all of our a themes work with the same parent theme, and each theme work with a specific child theme)
+You will use one of our WordPress starters. They come with all the required and recommended plugins.
+Each starter contains all the required and recommended plugins, as well as the parent and the child theme
+(all of our Gatsby themes work with the same WordPress parent theme and a specific WordPress child theme).
+
+You will also install some content (post and pages) to start even more quickly.  
+To have a quick all-in-one installation experience, you will use a free, third party WordPress plugin <a href="https://wordpress.org/plugins/all-in-one-wp-migration/" target="_blank" rel="noopener noreferrer">All In One WP Migration</a> third-party plugin.
+
+- Install WordPress on your hosting
+- Install and activate _All-in-One WP Migration_ plugin that is available in the official WordPress repo.
+- Click **Import** in the _All-in-One WP Migration_ menu
+- The starter size may exceed the _Maximum upload file size_ available (this may vary depending on your hosting).
+  _All-in-One WP Migration_ gives you a few solutions here. An easy way to upgrade the import size to `512MB` is by <a href="https://import.wp-migration.com/all-in-one-wp-migration-file-extension.zip">downloading and installing this add-on plugin.</a>
+- Chose **Import from File** and the `.wpress` package file corresponding to the Gatsby example that you are planning to use.
 
   <img src="./import.png" />
 
-- Login with admin / gatsbyWpThemes
-- Create a new user with secure credentials and delete the admin one
-- Configure your settings
-  - Make sure the permalinks are in the right format: if they are in plain, switch to Post name <img src="https://i.imgur.com/GnIhOQ5.gif" width="600"/>
-  - Go to Settings / reading and choose the number of posts per page in "Blog pages show at most"
-  - make sure that "Discourage search engine from indexing this site" is checked ![](https://i.imgur.com/7gJYiSa.png)
-- that's it!
-- it includes some dummy post and pages to guide you
+- Our starter is now installed!
+- Login to your website. You will have to use the temporary credentials that have just been set up:
+  - username: `admin`
+  - password: `gatsbyWpThemes`
+- Go to **Settings > Permalinks** and save your permalinks structure. All you have to do here is to click the **Save Changes** button.
+- Create a new user with secure credentials, login with your new credentials and delete the temporary admin account.
+
+  That's it!
 
 ### Manual way
 
@@ -72,41 +83,96 @@ Choose the starter you want to use among the ones you have received inside your 
    Most importantly, provide the url of your WordPress source website.
 5. Run `gatsby develop` to start the developement server
 
-### Configure your Gatsby site - config.js
+### Configure your Gatsby site
 
-In order to setup your Gatsby website, you will need to edit his configuration file, `config.js` located in the root of your project.
+```bash
+├── ✏️ .env
+├── README.md
+├── ✏️ config.js
+├── ✏️ configColors.js
+├── ✏️ configSizes.js
+├── ✏️ configTypography.js
+├── gatsby-config.js
+├── package.json
+├── src
+│   ├── 🗂 @chakra-ui
+│   ├── 🗂 @gatsbywpthemes
+│   └── 🗂 styles
+└── 🗂 static
+    ├── 🔃 favicon.svg
+    ├── 🔃 dark-mode-logo.svg
+    └── 🔃 logo.svg
+```
+
+In order to setup your Gatsby website, you might need to edit the configuration files ( ✏️ ) located in the root of your project.
+
+- ✏️ `.env` - basic configuration
+- ✏️ `config.js` - basic configuration
+- ✏️ `configColors.js` - if you want to change the theme colors
+- ✏️ `configSizes.js` - if you want to change some layout values (responsive breakpoints, container width, etc.)
+- ✏️ `configTypography.js` - if you want to modify the typography settings (font family, heading sizes etc.)
+
+#### Setting up the `.env` file
+
+The easiest way to setup your `.env` file is to rename the existing `.env-sample` to `.env`.
+
+```
+# rename this file to .env and supply the values listed below
+# also make sure they are available to the build tool (e.g. Netlify)
+# notice: variables prexifed with GATSBY_ will be made available to client-side code
+# GATSBY_WP_URL=the_url_of_your_wordpress_website
+# GATSBY_MAILCHIMP_ENDPOINT=https://gmail.us20.list-manage.com/subscribe/post?u={your_value}&amp;id={your_id}
+```
+
+**Your WordPress website**
+
+Uncomment the `GATSBY_WP_URL` line and replace the `the_url_of_your_wordpress_website` by the url of your WP website.
+
+example:
+
+```
+GATSBY_WP_URL=https://example.com
+```
+
+**Mailchimp endpoint** <a name="mailchimp"></a>
+
+You can subscribe new email addresses to a Mailchimp email list with our Newsletter widget.  
+In order to activate Mailchimp, assign your Mailchimp list endpoint URL to the environmental variable `GATSBY_MAILCHIMP_ENDPOINT`
+
+Our themes use [`gatsby-mailchimp-plugin`](https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp) for the MailChimp subscriptions.
+Check [the plugin documentation](https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp/#mailchimp-endpoint) for more information on how to locate your Mailchimp endpoint.
+
+example:
+
+```
+GATSBY_MAILCHIMP_ENDPOINT=https://gmail.us20.list-manage.com/subscribe/post?u=xxxyyyzzz&amp;id=xxyyzz
+```
+
+#### Further customization with `config.js`
 
 The default options are listed below.
 We discuss each one in details in the Options section.
 
 ```javascript
 const config = {
-  wordPressUrl: ``,
-  uploadsPath: `wp-content/uploads`,
   pathPrefix: "",
-  postsPath: ``,
-  paginationPrefix: `page`,
+  paginationPrefix: "page",
   addWordPressComments: true,
   menuName: "main",
   siteUrl: "https://example.com",
-  title: `Blog Title Placeholder`,
-  author: `Name Placeholder`,
-  description: `Description placeholder`,
+  author: "Name Placeholder",
   social: [
     {
-      name: `twitter`,
-      url: `https:twitter.com/gatsbyjs`,
+      name: "twitter",
+      url: "https://twitter.com/gatsbyjs",
     },
   ],
-  twitterSummaryCardImage: `Gatsby_Monogram.png`,
   fonts: ["Abril Fatface", "Fira Sans"],
   gaTrackingId: 0,
   googleTagManagerId: 0,
   addSiteMap: false,
   siteMapOptions: {},
-  addFancyBox: true,
   skipTitle: [],
-  mailchimpEndpoint: "",
 }
 ```
 
@@ -114,14 +180,6 @@ const config = {
 
 **wordPressUrl** (required)
 Provide a url to your WordPress source website
-
----
-
-**uploadsPath** (optional)
-`(default: wp-content/uploads)`
-
-A relative path to your uploads directory. `wp-content/uploads` is default for any WordPress installation.
-Unless you redefined your uploads destination, skip this setting.
 
 ---
 
@@ -140,40 +198,11 @@ Adding the path prefix requires two steps:
 pathPrefix: "/demo"
 ```
 
-2. You have to add `--prefix-paths` flag when building your website:
+2. adding `--prefix-paths` flag when building your website:
 
 ```bash
 gatsby build --prefix-paths
 ```
-
----
-
-**postsPath** (optional)
-`(default: "")`
-
-This is an important setting. It should reflect your WordPress _Reading > Your homepage_ displays settings, otherwise your Gatsby website may not work properly.
-
-That is:
-
-- `postsPath` should be left empty if your WordPress homepage displays your latest posts. This corresponds to the default in Settings > Reading > Your homepage displays.
-
-- If you chose a static page and set a Posts page, you should use the Posts page slug as your `postsPath`.
-
-- If your WordPress website doesn't display blog page (homepage displays a static page and Posts page is not defined), you should set `postsPath` to `false`.
-
-example:
-
-```javascript
-postsPath: "blog"
-```
-
-or
-
-```javascript
-postsPath: false
-```
-
-In the future, this setting will be removed. The WordPress Reading Settings > Your homepage displays will be used automatically.
 
 ---
 
@@ -183,7 +212,7 @@ In the future, this setting will be removed. The WordPress Reading Settings > Yo
 Prefix for paginated content.
 
 What is the url structure of any paginated content on your WordPress website? By default, WordPress uses `page` as the prefix, that means it preceeds page numbers by the `page` keyword (`page/2`, `page/3`, ...).
-You should skip this setting, unless your changed the pagination url format on your WordPress site.
+Your Gatsby permalinks structure should match your WordPress structure. Skip this setting, unless your changed the pagination url format on your WordPress site.
 
 ---
 
@@ -192,18 +221,20 @@ You should skip this setting, unless your changed the pagination url format on y
 
 Whether WordPress comments should be activated.
 
-If left `true`, the comments will be displayed for posts that have comments status set to "Allow Comments".
-Commenting on your Gatsby site work similarily to commenting on your WordPress site. The main difference is that **we only support two levels of comments nesting.** Under the hood, comments are fetched from WordPress and updated on WordPress (and refetched if necessary) with Apollo Client. Consequently, some of your WordPress Discussion settings applies to your Gatsby comments, in particular: email notifications, moderation and blocking rules.
+Our themes come with the support for native WordPress comments. This feauture is activated by default.  
+The comments are displayed for posts that have comments status set to "Allow Comments".
+Commenting on your Gatsby site works similarily to commenting on your WordPress site.
+The main difference is that **we only support two levels of comments nesting.**  
+Under the hood, comments are fetched from WordPress and updated on WordPress (and refetched if necessary) with Apollo Client.
+Consequently, some of your WordPress Discussion settings applies to your Gatsby comments, in particular: email notifications, moderation and blocking rules.
 
----
+You can deactivate WordPress comments this by changing `addWordPressComments` to `false`.
 
-**disqus** (optional)
+example:
 
-Whether Disqus comments should be activated.
-
-Alternatively to comments powered natively by WordPress, our themes supports [Disqus comments.](https://disqus.com/)
-To activate Disqus comments go to the .env file at the root of your project, uncomment GATSBY_DISQUS_NAME, and add your Disqus shortname (the unique identifier fo your website on Disqus.
-Disqus comments will be activated for all posts
+```javascript
+addWordPressComments: false,
+```
 
 ---
 
@@ -219,7 +250,98 @@ You can choose any of the menus that you had created on your WordPress site by p
 example:
 
 ```javascript
-menuName: "Main Menu"
+menuName: "Main Menu",
 ```
 
 ---
+
+**siteUrl** (obligatory for a production website)  
+`(type: Url, default: "https://example.com")`
+
+You can use the placeholder value `https://example.com` in the developement phase but once your site is built for production, you have to provide the url of your destination site.
+
+This is an essential setting for social share buttons (in Posts), SEO open graph data,
+and twitter card image. It's also necessary if you opt for an xml sitemap.
+
+---
+
+**gaUniversalTrackingId** (optional, deprecated)  
+`(type: String)`
+
+You can add Google Analytics to your Gatsby site by
+providing your Google Analytics tracking ID.
+Also, please note that the Google Analytics functionality is disabled in the developement mode.
+
+example:
+
+```javascript
+gaUniversalTrackingId: "UA-111111111-1",
+```
+
+**gaUniversalOptions** (optional, deprecated)  
+`(type: Object, default: {})`
+
+Our themes use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.npmjs.com/package/gatsby-plugin-google-analytics) and
+you have access to all [its options.](https://www.npmjs.com/package/gatsby-plugin-google-analytics#how-to-use)
+
+```javascript
+gaUniversalTrackingId: "UA-111111111-1",
+gaUniversalOptions: {
+  head: true,
+},
+```
+
+### `static` folder
+
+If you want to use a custom logo and/or a favicon, you need to put the files into the `static` folder in the root of your example. The `static` folder is already there.
+
+**logo** (optional)  
+`(type: String)`
+
+The name of your logo file, this file must be located in the `static` folder. If no logo is provided, the site title is displayed instead.
+
+example:
+
+```bash
+└── 🗂 static
+    ├── 🔃 favicon.svg
+    ├── 🔃 dark-mode-logo.svg
+    └── 🔃 logo.svg
+```
+
+```javascript
+logo: "logo.svg",
+```
+
+**darkModeLogo** (optional)  
+`(type: String)`
+
+example:
+
+**logo** (optional)  
+`(type: String)`
+
+Depending on the colors that you use, you may need to provide an alternative version of your logo for the dark mode.
+
+example:
+
+```bash
+└── 🗂 static
+    ├── 🔃 favicon.svg
+    ├── 🔃 dark-mode-logo.svg
+    └── 🔃 logo.svg
+```
+
+```javascript
+logo: "logo.svg",
+darkModeLogo: "dark-mode-logo.svg"
+```
+
+**favicon** (optional)  
+`(type: String)`
+
+example:
+
+```javascript
+
+```
