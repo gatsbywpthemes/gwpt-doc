@@ -1,92 +1,95 @@
-import React from 'react';
-import { useTheme, Global, css } from '@emotion/react';
-import GlobalStyle from '@rocketseat/gatsby-theme-docs/src/styles/global';
+import React from "react"
+import { useTheme, Global, css } from "@emotion/react"
+import GlobalStyle from "@rocketseat/gatsby-theme-docs/src/styles/global"
 
 console.log(GlobalStyle)
 
 const ExtendedGlobalStyles = () => {
-  const theme = useTheme();
-  return(
-  <>
-    <GlobalStyle />
-    <Global styles={{
-        'html': {
-          fontSize: "112.5%!important",
-          
-        },
-        body: {
-          fontFamily: "Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
-        },
-        p: {
-          fontSize: '1rem',
-          lineHeight: '1.5'
-        },
-        'li  p': {
-          fontSize: 'inherit'
-        },
-        a: {
-          fontWeight: 500
-        },
-        h2: {
-          borderBottom: '2px solid',
-          paddingBottom: '.75rem',
-          marginTop: '3rem'
-        },
-        hr: {
-          margin: "2rem 0"
-        },
-        'code.inline-code:nth-of-type(n)': {
-          fontSize: '100%',
-          background: 'transparent',
-          color: theme.colors.code,
-          padding: 0,
-          lineHeight: 'inherit',
-          verticalAlign: 'unset'
-        },
-        '.gatsby-highlight .token-line:nth-of-type(n)': {
-          fontSize: "unset"
-        },
-        '.steps > ul, .steps > ol': {
-          padding: 0,
-          listStylePosition: 'inside'
-        },
-        '.steps > ol': {
-          listStyle: 'none',
-          '& > li': {
-            counterIncrement: 'inst',
-            position: 'relative',
-            paddingLeft: '2rem'
+  const theme = useTheme()
+  return (
+    <>
+      <GlobalStyle />
+      <Global
+        styles={{
+          html: {
+            fontSize: "112.5%!important"
           },
-          '& > li:before': {
-            content: 'counter(inst)',
-            background: theme.colors.code,
-            color: 'white',
-            borderRadius: '50%',
-            width: '1.25rem',
-            height: '1.25rem',
-            display: 'inline-block',
-            textAlign: 'center',
-            lineHeight: '1.25rem',
-            fontSize: '12px',
-            fontWeight: 'bold',
-            position: 'absolute',
-            left: 0,
-            top: '.125rem',
-            opacity: .5
-          }
-        },
-        '.steps > ul > li, .steps > ol > li': {
-          borderBottom: '1px solid #d6d6d6',
-          marginBottom: '.5rem',
-          paddingBottom: '.5rem'
-        },
+          body: {
+            fontFamily:
+              "Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
+          },
+          p: {
+            fontSize: "1rem",
+            lineHeight: "1.5"
+          },
+          "li  p": {
+            fontSize: "inherit"
+          },
+          a: {
+            fontWeight: 500
+          },
+          "main h2": {
+            borderBottom: "2px solid",
+            paddingBottom: ".75rem",
+            marginTop: "3rem"
+          },
+          hr: {
+            margin: "2rem 0"
+          },
+          "code.inline-code:nth-of-type(n)": {
+            fontSize: "100%",
+            background: "transparent",
+            color: theme.colors.code,
+            padding: 0,
+            lineHeight: "inherit",
+            verticalAlign: "unset"
+          },
+          ".gatsby-highlight .token-line:nth-of-type(n)": {
+            fontSize: "unset"
+          },
+          ".steps > ul, .steps > ol": {
+            padding: 0,
+            listStylePosition: "inside"
+          },
+          ".steps > ol": {
+            listStyle: "none",
+            "& > li": {
+              counterIncrement: "inst",
+              position: "relative",
+              paddingLeft: "2rem"
+            },
+            "& > li:before": {
+              content: "counter(inst)",
+              background: theme.colors.code,
+              color: "white",
+              borderRadius: "50%",
+              width: "1.25rem",
+              height: "1.25rem",
+              display: "inline-block",
+              textAlign: "center",
+              lineHeight: "1.25rem",
+              fontSize: "12px",
+              fontWeight: "bold",
+              position: "absolute",
+              left: 0,
+              top: ".125rem",
+              opacity: 0.5
+            }
+          },
+          ".steps > ul > li, .steps > ol > li": {
+            borderBottom: "1px solid #d6d6d6",
+            marginBottom: ".5rem",
+            paddingBottom: ".5rem"
+          },
 
-        '.gatsby-resp-image-wrapper': {
-          margin: "1rem 0"
-        },
-      }}/>
-  </>
-)}
+          ".gatsby-resp-image-wrapper": {
+            margin: "1rem 0"
+          }
+        }}
+      />
+    </>
+  )
+}
 
 export default ExtendedGlobalStyles
 

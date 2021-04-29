@@ -1,12 +1,12 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { Index } from "lunr"
 import { graphql, useStaticQuery } from "gatsby"
 import SearchResults from "./search-results"
+import { SearchContext } from "../context"
 
 const SearchWidget = () => {
-  const [results, setResults] = useState([])
-  const [query, setQuery] = useState("")
-
+  const { query, setQuery, results, setResults } = useContext(SearchContext)
+  const [value, setValue] = useState(query)
   const { LunrIndex } = useStaticQuery(graphql`
     query {
       LunrIndex
@@ -14,12 +14,13 @@ const SearchWidget = () => {
   `)
   const index = Index.load(LunrIndex.index)
   const { store } = LunrIndex
-  const handleChange = e => {
+  const handleChange = (e) => {
+    setValue(e.target.value)
     if (e.target.value === "") {
       handleSearchSubmit()
     }
   }
-  const handleSearchSubmit = e => {
+  const handleSearchSubmit = (e) => {
     if (e) {
       e.preventDefault()
     }
@@ -29,7 +30,7 @@ const SearchWidget = () => {
       const search = index.search(query).map(({ ref }) => {
         return {
           slug: ref,
-          ...store[ref],
+          ...store[ref]
         }
       })
       setResults(search)
@@ -48,8 +49,14 @@ const SearchWidget = () => {
             id="search"
             type="search"
             placeholder="ex. useState"
+            value={value}
             onChange={handleChange}
           />
+          <button type="submit" aria-label="Submit search form">
+            <span role="img" aria-hidden={true}>
+              🔎
+            </span>
+          </button>
         </div>
       </form>
       {query && <SearchResults results={results} />}

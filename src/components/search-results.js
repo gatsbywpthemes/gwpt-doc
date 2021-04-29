@@ -1,12 +1,20 @@
 import React from "react"
 import { Link } from "gatsby"
+import {
+  Container,
+  LogoContainer,
+  List,
+  Heading,
+  Item,
+  SubItem
+} from "@rocketseat/gatsby-theme-docs/src/components/Sidebar/styles"
 
 const SearchResults = ({ results }) => {
   return results.length ? (
     <>
-      <h2>{results.length} documents trouvé(s)</h2>
-      <ul>
-        {results.map(result => (
+      <Heading as="h2">{results.length} documents trouvé(s)</Heading>
+      <List>
+        {results.map((result) => (
           <li key={result.slug}>
             <Link
               to={`${result.slug}`}
@@ -14,7 +22,7 @@ const SearchResults = ({ results }) => {
             />
           </li>
         ))}
-      </ul>
+      </List>
     </>
   ) : (
     <p>Aucun document ne correspond pas à la requête.</p>

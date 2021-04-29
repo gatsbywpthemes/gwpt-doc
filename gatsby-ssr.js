@@ -1,4 +1,3 @@
-import "typeface-rubik"
 import React from "react"
 import SearchProvider from "./src/context"
 
