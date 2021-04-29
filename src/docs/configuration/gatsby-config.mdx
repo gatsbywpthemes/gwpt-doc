@@ -1,0 +1,78 @@
+---
+title: Settings in config.js
+description: Configure your Gatsby website via config.js
+---
+
+The default options are listed below.
+We discuss each one in detail in the Options section.
+
+```javascript title=config.js
+const config = {
+  pathPrefix: "",
+  fonts: ["Abril Fatface", "Fira Sans"],
+  gaTrackingId: 0,
+  googleTagManagerId: 0,
+  addSiteMap: false,
+  siteMapOptions: {},
+}
+```
+
+## `pathPrefix`  
+optional, `default: ""`
+
+Typically, your Gatsby website will be hosted at the root of its domain. In that case, the `pathPrefix` is an empty string, and you can skip this setting.
+You will need to set the `pathPrefix` if your gatsby website is hosted at something other than the root (/), e.g., `https://example.com/demo`.
+
+Adding the path prefix requires two steps:
+
+<div class="steps">
+
+1. setting the `pathPrefix` (**make sure to precede it with a slash**), for example:
+
+  ```javascript title=config.js
+  pathPrefix: "/demo",
+  ```
+
+2. adding `--prefix-paths` flag when building your website:
+  ```bash
+  gatsby build --prefix-paths
+  ```
+
+</div>
+
+> Sometimes, you might want to access your production site locally. In that case you will have to serve it with the `--prefix-paths` flag, i.e., `gatsby serve --prefix-paths`  
+> Your production build will be available at `http://localhost:9000/demo`.
+
+---
+
+## `fonts`
+
+## `gaUniversalTrackingId`
+optional, deprecated, type: `string`
+
+You can add Google Analytics to your Gatsby site by
+providing your Google Analytics tracking ID.
+Also, please note that the Google Analytics functionality is disabled in the developement mode.
+
+example:
+
+```javascript
+gaUniversalTrackingId: "UA-111111111-1",
+```
+
+## `gaUniversalOptions`
+optional, deprecated, `(type: Object, default: {})`
+
+Our themes use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.npmjs.com/package/gatsby-plugin-google-analytics) and
+you have access to all [its options.](https://www.npmjs.com/package/gatsby-plugin-google-analytics#how-to-use)
+
+```javascript
+gaUniversalTrackingId: "UA-111111111-1",
+gaUniversalOptions: {
+  head: true,
+},
+```
+
+## `addSiteMap`
+
+## `siteMapOptions`

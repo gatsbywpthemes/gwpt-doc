@@ -17,7 +17,7 @@
     - label: 'WordPress Theme Options'
       link: '/configuration/wp'
     - label: 'Setting Up Gatsby'
-      link: '/configuration/gatsby'
+      link: '/configuration/gatsby-config'
 - label: More
   items:
     - label: 'Shadowing'
