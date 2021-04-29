@@ -1,0 +1,115 @@
+---
+title:  Setting up your Gatsby Site
+description: Setting Up your Gatsby site.
+---
+
+## Set Up Your Development Environment
+
+To build your Gatsby website locally on your computer, you will need to set up your local machine. The official Gatsby documentation provides a <a href="https://www.gatsbyjs.org/tutorial/part-zero/" target="_blank" rel="noopener noreferrer">step by step tutorial on how to set up your development environment.</a>  
+Follow their tutorial and make sure to have `gatsby-cli` correctly installed.
+
+## Installing your Gatsby starter
+
+1. Unzip the starter of your choice.
+
+   ```bash title=Starter&nbsp;structure copy=false
+   ├── .babelrc
+   ├── ✏️✏️✏️ .env-sample # rename to .env
+   ├── .gitignore
+   ├── ✏️✏️✏️ .npmrc-sample # rename to .npmrc
+   ├── README.md
+   ├── ✏️✏️ config.js
+   ├── ✏️ configColors.js
+   ├── ✏️ configSizes.js
+   ├── ✏️ configTypography.js
+   ├── gatsby-config.js
+   ├── package.json
+   ├── src
+   │   ├── 🗂 @gatsbywpthemes
+   │   └── 🗂 styles
+   └── 🗂 static
+
+   # ✏️✏️✏️ - you have to edit this file
+   # ✏️✏️  - you will probably need to edit this file
+   # ✏️   - you might want to edit this file
+   ```
+
+2. Open the `.nprmc` file and replace `YOUR-AUTH-TOKEN` string with the token you can find in your welcome mail.
+3. Run `yarn` command from your starter directory. It will install all the dependencies.
+4. Rename the `.env.sample` file as `.env`. In your `.env` file provide the url of your WordPress source website.
+5. Run `gatsby develop` to start the development server.
+
+## Configure your Gatsby site
+
+To set up your Gatsby website, you might need to edit the configuration files ( ✏️ ) located at the root of your project.
+
+- ✏️✏️✏️ `.env` - basic **mandatory** configuration
+- ✏️✏️ `config.js` - further configuration, general features
+- ✏️ `configColors.js` - if you want to change the theme colors
+- ✏️ `configSizes.js` - if you want to change some layout values (responsive breakpoints, container width, etc.)
+- ✏️ `configTypography.js` - if you want to modify the typography settings (font family, heading sizes etc.)
+
+## Setting up the `.env` file
+
+Some crucial settings of your Gatsby website are set as environment variables. That means, Gatsby will look for them in the `.env` file. The most important ones are:
+
+- `GATSBY_WP_URL` - mandatory setting, the URL of the WordPress source website
+- `GATSBY_SITE_URL` - mandatory for a published production website, the URL of your published Gatsby website
+
+The easiest way to set up your `.env` file is to rename the existing `.env-sample` to `.env`. You will find the sample `.env-sample` file in the root of each starter.
+
+```sh title=.env-sample
+# rename this file to .env (or .env.development and .env.production)
+# supply the values listed below
+# make sure to uncomment the lines that you edit
+
+# GATSBY_WP_URL=the_url_of_your_wordpress_website
+# GATSBY_SITE_URL=the_url_to_your_published_gatsby_site
+# GATSBY_MAILCHIMP_ENDPOINT=https://gmail.us20.list-manage.com/subscribe/post?u={your_value}&amp;id={your_id}
+```
+
+Alternatively, you can create two separate `.env` files `.env.development` and `.env.production`. Gatsby will use choose one of these depending on the environment you are in:
+
+- if you run `gatsby develop`, you will be in the _development_ environment.
+- if you run `gatsby build` or `gatsby serve`, then you will be in the _production_ environment.
+
+### `GATSBY_WP_URL`
+
+Uncomment the `GATSBY_WP_URL` line and replace the `the_url_of_your_wordpress_website` with the URL of your WP website, for example:
+
+```sh title=.env
+GATSBY_WP_URL=https://wp.example.com
+```
+
+### `GATSBY_SITE_URL`
+
+Uncomment the `GATSBY_SITE_URL` line and replace the `the_url_to_your_published_gatsby_site` with the URL of your WP website, for example:
+
+```sh title=.env
+GATSBY_WP_URL=https://gatsby.example.com
+```
+
+### `GATSBY_MAILCHIMP_ENDPOINT`
+
+**Mailchimp endpoint** <a name="mailchimp"></a>
+
+You can subscribe to new email addresses to a Mailchimp email list with our Newsletter widget.  
+To activate Mailchimp, assign your Mailchimp list endpoint URL to the environmental variable `GATSBY_MAILCHIMP_ENDPOINT`
+
+Our themes use [`gatsby-mailchimp-plugin`](https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp) for the MailChimp subscriptions.
+Check [the plugin documentation](https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp/#mailchimp-endpoint) for more information on how to locate your Mailchimp endpoint.
+
+example:
+
+```sh title=.env
+GATSBY_MAILCHIMP_ENDPOINT=https://gmail.us20.list-manage.com/subscribe/post?u=xxxyyyzzz&amp;id=xxyyzz
+```
+
+---
+
+Things you should be aware of:
+
+- `.env`, `.env.development` or `.env.production` are not checked into version control. If you need to check your `.env` file, you can remove it from the `.gitignore` file.
+- All variables prefixed with GATSBY\_ will be made available to client-side code.
+- You will have to make sure that your environment variables are available to the build tool (e.g., Netlify).
+- After modifying the `.env` file, you will need to restart the server.

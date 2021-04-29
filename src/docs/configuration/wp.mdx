@@ -1,0 +1,51 @@
+---
+title: Configure your Gatsby website via WordPress Theme Options
+description: Configure your Gatsby website via WordPress Theme Options
+---
+
+Your WordPress website provides the content for your Gatsby website, but it also provides some configuration. Let's list what you can configure via WordPress Customiser. 
+
+
+
+## Settings for your Gatsby Website
+
+> The Gatsby configuration via WordPress is only available for sites that use our Headless WP parent theme together with the starter-specific child theme. Please note that some settings may be unavailable if you use a different theme. 
+
+### Site Identity
+
+- Site title
+- Site tagline
+- Site logo
+- Dark version of the logo (if your starter supports dark theme)
+- Site icon
+
+### General Features
+
+- **Add WordPress Comments** - whether they should or should not be activated. This feature is activated by default.  
+  The comments are displayed for posts that have comments status set to "Allow Comments."
+  Commenting on your Gatsby site works similar to commenting on your WordPress site.
+  The main difference is that **we only support two levels of comments nesting.**  
+   Under the hood, comments are fetched from WordPress and updated on WordPress (and re-fetched if necessary) with Apollo Client.
+  Consequently, some of your WordPress Discussion settings apply to your Gatsby comments, see [WordPress Core Settings > Discussion](http://localhost:8000/configuration/wp-core#settings--discussion).
+- **Add WordPress Search** - whether native WordPress search should be activated. It's deactivated by default.
+- ** Add Color Modes ** (if relevant) - whether switching color modes should be activated. It is activated by default for starters related to Gatsby themes that support color modes.
+
+### Social Follow Links
+
+- **Ordered list of links to your social profiles** that will be displayed in the Social Follows widget.
+
+The supported profiles are Behance, Codepen, Dev, Discord, Dribbble, Facebook, Github, GitLab, Instagram, Linkedin, Mastodon, Medium, Pinterest, Reddit, Slack, Slideshare, Snapchat, Soundcloud, StackOverflow, Telegram, Tumblr, Twitter, Vimeo, Youtube.
+
+### Gatsby Widgets
+
+Our Gatsby themes do not provide support for native WordPress widgets. Instead, we provide our Gatsby widgets that have similar functionalities to their WordPress counterparts:
+
+- Social Follow
+- Recent Posts
+- Categories
+- Tags
+- Newsletter
+
+## Gatsby Colors Theme
+
+Depending on the starter, you might have the possibility to set up the Gatsby Colors Theme via WordPress Customizer. If you prefer to define colors in your `.js` configuration file instead, please head to [link to add]()
