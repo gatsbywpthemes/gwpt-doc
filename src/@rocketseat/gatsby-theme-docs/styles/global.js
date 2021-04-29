@@ -12,14 +12,14 @@ const ExtendedGlobalStyles = () => {
       <Global
         styles={{
           html: {
-            fontSize: "112.5%!important"
+            fontSize: "100%!important"
           },
           body: {
             fontFamily:
               "Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
           },
-          p: {
-            fontSize: "1rem",
+          "main p": {
+            fontSize: "1.125rem",
             lineHeight: "1.5"
           },
           "li  p": {
@@ -81,9 +81,57 @@ const ExtendedGlobalStyles = () => {
             marginBottom: ".5rem",
             paddingBottom: ".5rem"
           },
-
           ".gatsby-resp-image-wrapper": {
             margin: "1rem 0"
+          },
+          ".search-wrapper": {
+            padding: "0 20px",
+            marginBottom: "2rem",
+            div: {
+              position: "relative"
+            },
+            label: {
+              display: "block",
+              marginBottom: ".25rem",
+              padding: 0
+            },
+            input: {
+              padding: ".5rem",
+              fontSize: "1rem",
+              width: "100%",
+              background: `transparent`,
+              border: `1px solid ${theme.colors.primary}`,
+              fontFamily: "inherit",
+              borderRadius: "4px"
+            },
+            "input::-webkit-search-cancel-button": {
+              WebkitAppearance: "none"
+            },
+            "input::placeholder": {
+              color: theme.colors.primary,
+              opacity: 0.6
+            },
+            button: {
+              position: "absolute",
+              right: "1px",
+              top: "1px",
+              bottom: "1px",
+              padding: "0 .65rem",
+              background: "rgb(222 209 230)",
+              border: "none",
+              WebkitAppearance: "none",
+              borderRadius: "0 3px 3px 0"
+            },
+            h2: {
+              padding: "0 0 0 10px"
+            },
+            ul: {
+              listStyle: "none",
+              padding: 0,
+              li: {
+                padding: 0
+              }
+            }
           }
         }}
       />

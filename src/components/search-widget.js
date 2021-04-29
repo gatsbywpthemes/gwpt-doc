@@ -3,6 +3,14 @@ import { Index } from "lunr"
 import { graphql, useStaticQuery } from "gatsby"
 import SearchResults from "./search-results"
 import { SearchContext } from "../context"
+import {
+  Container,
+  LogoContainer,
+  List,
+  Heading,
+  Item,
+  SubItem
+} from "@rocketseat/gatsby-theme-docs/src/components/Sidebar/styles"
 
 const SearchWidget = () => {
   const { query, setQuery, results, setResults } = useContext(SearchContext)
@@ -41,9 +49,9 @@ const SearchWidget = () => {
   return (
     <div className="search-wrapper" mb="5">
       <form role="search" onSubmit={handleSearchSubmit} mb="5">
-        <label htmlFor="search" className="visually-hidden">
+        <Heading as="label" htmlFor="search" className="visually-hidden">
           Que cherchez vous ?
-        </label>
+        </Heading>
         <div position="relative">
           <input
             id="search"

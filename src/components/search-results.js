@@ -13,16 +13,16 @@ const SearchResults = ({ results }) => {
   return results.length ? (
     <>
       <Heading as="h2">{results.length} documents trouvé(s)</Heading>
-      <List>
+      <ul>
         {results.map((result) => (
-          <li key={result.slug}>
+          <Item key={result.slug}>
             <Link
               to={`${result.slug}`}
               dangerouslySetInnerHTML={{ __html: result.title }}
             />
-          </li>
+          </Item>
         ))}
-      </List>
+      </ul>
     </>
   ) : (
     <p>Aucun document ne correspond pas à la requête.</p>
