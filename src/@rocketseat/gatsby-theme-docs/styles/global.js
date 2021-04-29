@@ -130,6 +130,9 @@ const ExtendedGlobalStyles = () => {
               padding: 0,
               li: {
                 padding: 0
+              },
+              "[aria-current='page']": {
+                fontWeight: "bold"
               }
             }
           }
