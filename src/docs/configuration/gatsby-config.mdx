@@ -15,13 +15,14 @@ const config = {
   addSiteMap: false,
   siteMapOptions: {},
 }
+module.exports = config
 ```
 
 ## `pathPrefix`  
 optional, `default: ""`
 
-Typically, your Gatsby website will be hosted at the root of its domain. In that case, the `pathPrefix` is an empty string, and you can skip this setting.
-You will need to set the `pathPrefix` if your gatsby website is hosted at something other than the root (/), e.g., `https://example.com/demo`.
+Typically, your Gatsby website will be hosted at the root of its domain. In that case, the `pathPrefix` is an empty string, and you can skip this setting.  
+You will only need to set the `pathPrefix` if your gatsby website is hosted at something other than the root (/), e.g., `https://example.com/demo`.
 
 Adding the path prefix requires two steps:
 
@@ -30,7 +31,11 @@ Adding the path prefix requires two steps:
 1. setting the `pathPrefix` (**make sure to precede it with a slash**), for example:
 
   ```javascript title=config.js
-  pathPrefix: "/demo",
+  const config = {
+    pathPrefix: "/demo",
+    // ...
+  }
+  module.exports = config
   ```
 
 2. adding `--prefix-paths` flag when building your website:
@@ -40,7 +45,7 @@ Adding the path prefix requires two steps:
 
 </div>
 
-> Sometimes, you might want to access your production site locally. In that case you will have to serve it with the `--prefix-paths` flag, i.e., `gatsby serve --prefix-paths`  
+> Sometimes, you might want to access your production site locally. In that case, you will have to serve it with the `--prefix-paths` flag, i.e., `gatsby serve --prefix-paths`  
 > Your production build will be available at `http://localhost:9000/demo`.
 
 ---
@@ -63,7 +68,7 @@ gaUniversalTrackingId: "UA-111111111-1",
 ## `gaUniversalOptions`
 optional, deprecated, `(type: Object, default: {})`
 
-Our themes use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.npmjs.com/package/gatsby-plugin-google-analytics) and
+Our themes use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.npmjs.com/package/gatsby-plugin-google-analytics), and
 you have access to all [its options.](https://www.npmjs.com/package/gatsby-plugin-google-analytics#how-to-use)
 
 ```javascript
@@ -74,5 +79,39 @@ gaUniversalOptions: {
 ```
 
 ## `addSiteMap`
+optional, type: `boolean`, default: `false`
+
+Setting `addSiteMap` to `true` will generate a [site map](https://en.wikipedia.org/wiki/Site_map) for your website.
+
+> The site map will be generated only when run in production mode.
+
+```javascript title=config.js
+const config = {
+  // ...
+  addSiteMap: true,
+  // ...
+}
+module.exports = config
+```
+
+> Please note that your site map will list absolute URLs to your pages. That means you have to provide your production gatsby website URL as the value for `GATSBY_SITE_URL` in your `.env` file (see [Setting Up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
 
 ## `siteMapOptions`
+optional, type: `object`, default: `{}`
+
+The `siteMapOptions` setting is only used if `addSiteMap` is set `true`. The `siteMapOptions` are passed to the [gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/) options so please refer to [gatsby-plugin-sitemap options](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/#options) for the details. Pass any options that you would pass to the `gatsby-plugin-sitemap` options to `siteMapOptions`.
+
+> You don't have to worry about passing `siteUrl` to `siteMetadata` (as stated in the plugin documentation) - we take care of that, just make sure to provide `GATSBY_SITE_URL` in your `.env` file (see [Setting Up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
+
+```javascript title=config.js
+const config = {
+  // ...
+  addSiteMap: true,
+  siteMapOptions: {
+    excludes: ['/contact/']
+  },
+  // ...
+}
+module.exports = config
+```
+ 

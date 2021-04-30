@@ -23,6 +23,7 @@ const SearchResults = ({ results }) => {
           </Item>
         ))}
       </ul>
+      {results.length && <hr />}
     </>
   ) : (
     <p>Aucun document ne correspond pas à la requête.</p>

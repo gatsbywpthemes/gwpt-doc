@@ -56,7 +56,7 @@ const SearchWidget = () => {
           <input
             id="search"
             type="search"
-            placeholder="ex. useState"
+            placeholder="ex. comments"
             value={value}
             onChange={handleChange}
           />

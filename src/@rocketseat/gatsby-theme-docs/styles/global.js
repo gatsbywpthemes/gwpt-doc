@@ -72,7 +72,7 @@ const ExtendedGlobalStyles = () => {
               fontWeight: "bold",
               position: "absolute",
               left: 0,
-              top: ".125rem",
+              top: ".25rem",
               opacity: 0.5
             }
           },

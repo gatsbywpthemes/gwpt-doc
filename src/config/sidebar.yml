@@ -1,27 +1,27 @@
 # Sidebar navigation
 
 - label: "Introduction"
-  link: "/"
-- label: "Getting started"
-  link: "/getting-started/"
+  link: /
+- label: "Getting Started"
+  link: /getting-started
 - label: Setup
   items:
     - label: "Setting Up WordPress"
-      link: "/setup/wp/"
+      link: "/setup/wp"
     - label: "Setting Up Gatsby"
-      link: "/setup/gatsby/"
+      link: "/setup/gatsby"
 - label: Configuration
   items:
     - label: "WordPress Core Settings"
-      link: "/configuration/wp-core/"
+      link: "/configuration/wp-core"
     - label: "WordPress Theme Options"
-      link: "/configuration/wp/"
+      link: "/configuration/wp"
     - label: "Setting Up Gatsby"
-      link: "/configuration/gatsby-config/"
+      link: "/configuration/gatsby-config"
 - label: More
   items:
     - label: "Shadowing"
-      link: "/usage/shadowing/"
+      link: "/usage/shadowing"
     - label: FAQ
       link: /faq
     - label: "Github"
