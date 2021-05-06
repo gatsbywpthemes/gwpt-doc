@@ -9,16 +9,19 @@ We discuss each one in detail in the Options section.
 ```javascript title=config.js
 const config = {
   pathPrefix: "",
-  fonts: ["Abril Fatface", "Fira Sans"],
+  webfontsOptions: {},
   gaTrackingId: 0,
   googleTagManagerId: 0,
+  googleTagManagerOptions: {},
   addSiteMap: false,
   siteMapOptions: {},
+  developLimit: null,
 }
 module.exports = config
 ```
 
-## `pathPrefix`  
+## `pathPrefix`
+
 optional, `default: ""`
 
 Typically, your Gatsby website will be hosted at the root of its domain. In that case, the `pathPrefix` is an empty string, and you can skip this setting.  
@@ -30,18 +33,19 @@ Adding the path prefix requires two steps:
 
 1. setting the `pathPrefix` (**make sure to precede it with a slash**), for example:
 
-  ```javascript title=config.js
-  const config = {
-    pathPrefix: "/demo",
-    // ...
-  }
-  module.exports = config
-  ```
+   ```javascript title=config.js
+   const config = {
+     pathPrefix: "/demo",
+     // ...
+   }
+   module.exports = config
+   ```
 
 2. adding `--prefix-paths` flag when building your website:
-  ```bash
-  gatsby build --prefix-paths
-  ```
+
+   ```bash
+   gatsby build --prefix-paths
+   ```
 
 </div>
 
@@ -50,35 +54,191 @@ Adding the path prefix requires two steps:
 
 ---
 
-## `fonts`
+## `webfontsOptions`
+
+Our themes support Google web fonts, under the hood we use the Gatsby plugin [`gatsby-plugin-webfonts`](https://www.gatsbyjs.com/plugins/gatsby-plugin-webfonts/). The `webfontsOptions` setting is passed to the `gatsby-plugin-webfonts` options.
+
+Let's imagine that you want to use Abril Fatface for headings and Lora for the body.
+
+```javascript title=config.js
+const config = {
+  // ...
+  webfontsOptions: {
+    fonts: {
+      google: [
+        { family: "Abril Fatface" },
+        {
+          family: "Lora",
+          variants: ["400", "400i", "700", "700i"],
+        },
+      ],
+    },
+  },
+  // ...
+}
+module.exports = config
+```
+
+Now Abril Fatface and Lora (all specified variants) are loaded and available in your project. You still have to specify how you want to use them in the `configTypography.js` file :
+
+```js title=configTypography.js
+const typographySettings = {
+  fonts: {
+    body: "Lora, serif",
+    heading: "Abril Fatface, serif",
+  },
+  fontWeights: {
+    heading: 400, // Abril Fatface comes as one-variant 400 font face
+    body: 400,
+    bold: 700,
+  },
+  // ..
+}
+```
+
+If other options are not specified, the plugin defaults are as follows :
+
+```js
+
+formats: ["woff2", "woff"],
+useMinify: true,
+usePreload: true,
+usePreconnect: false,
+formatAgents: {
+  eot: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E)`,
+  ttf: `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.59.8 (KHTML, like Gecko) Version/5.1.9 Safari/534.59.8`,
+  woff: `Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko`,
+  woff2: `Mozilla/5.0 (Windows NT 10.0; Win64; x64; ServiceUI 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393`,
+},
+
+```
+
+---
 
 ## `gaUniversalTrackingId`
-optional, deprecated, type: `string`
+
+optional, type: `string`
+
+You can add Google Analytics to your Gatsby site by
+providing your Google Analytics tracking ID.
+Also, please note that the Google Analytics functionality is disabled in the development mode.  
+Under the hood we use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-analytics/). You can pass any additional available settings with `gaUniversalOptions`.
+
+```javascript title=config.js
+const config = {
+  // ...
+  gaUniversalTrackingId: "UA-111111111-1",
+  // ...
+}
+module.exports = config
+```
+
+> As you can read on the [`gatsby-plugin-google-analytics`](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-analytics/) website, it uses the Google’s `analytics.js` file which is deprecated by Google in favor of the `gtag.js`. We cover that for you - you can use [`ga4TrackingId`](#ga4trackingid) and [`ga4Options`](#ga4options) instead of `gaUniversalTrackingId` and `gaUniversalOptions`.
+
+## `gaUniversalOptions`
+
+optional, default: `{}`
+
+Our themes use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.npmjs.com/package/gatsby-plugin-google-analytics), and
+you have access to all [its options.](https://www.npmjs.com/package/gatsby-plugin-google-analytics#how-to-use)
+
+```javascript title=config.js
+const config = {
+  // ...
+  gaUniversalTrackingId: "UA-111111111-1",
+  gaUniversalOptions: {
+    head: true,
+  },
+  // ...
+}
+module.exports = config
+```
+
+```javascript
+
+```
+
+---
+
+## `ga4TrackingId`
+
+optional, type: `string`
 
 You can add Google Analytics to your Gatsby site by
 providing your Google Analytics tracking ID.
 Also, please note that the Google Analytics functionality is disabled in the development mode.
 
-example:
-
-```javascript
-gaUniversalTrackingId: "UA-111111111-1",
+```javascript title=config.js
+const config = {
+  // ...
+  ga4TrackingId: "G-XXXXXXXXXX",
+  // ...
+}
+module.exports = config
 ```
 
-## `gaUniversalOptions`
-optional, deprecated, `(type: Object, default: {})`
+## `ga4Options`
 
-Our themes use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.npmjs.com/package/gatsby-plugin-google-analytics), and
-you have access to all [its options.](https://www.npmjs.com/package/gatsby-plugin-google-analytics#how-to-use)
+optional, default: `{}`
 
-```javascript
-gaUniversalTrackingId: "UA-111111111-1",
-gaUniversalOptions: {
-  head: true,
-},
+Under the hook we use the official Gatsby plugin [`gatsby-plugin-google-gtag`](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/), and you can pass here any of its options.
+
+```javascript title=config.js
+const config = {
+  // ...
+  ga4TrackingId: "G-XXXXXXXXXX",
+  ga4Options: {
+    pluginConfig: {
+      head: true,
+    },
+  },
+  // ...
+}
+module.exports = config
 ```
+
+---
+
+## `googleTagManagerId`
+
+optional, default: `0`
+
+Your Google Tag Manager Id. This option is passed to the gatsby plugin ['gatsby-plugin-google-tagmanager'](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-tagmanager/). You can pass any additional available settings with `googleTagManagerOptions`.
+
+```js title=config.js
+const config = {
+  googleTagManagerId: "GTM-XXXXXX",
+  // ...
+}
+module.exports = config
+```
+
+## `googleTagManagerOptions`
+
+optional, default: `{}`
+
+As mentioned above, we use [gatsby-plugin-google-tagmanager](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-tagmanager/) under the hood. Any options that you add here will be passed to the plugin options - please refer to [the plugin documentation](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-tagmanager/) for further details and available options.
+
+```js title=config.js
+const config = {
+  googleTagManagerId: "GTM-XXXXXX",
+  googleTagManagerOptions: {
+    includeInDevelopment: false,
+    defaultDataLayer: function () {
+      return {
+        pageType: window.pageType,
+      }
+    },
+  },
+  // ...
+}
+module.exports = config
+```
+
+---
 
 ## `addSiteMap`
+
 optional, type: `boolean`, default: `false`
 
 Setting `addSiteMap` to `true` will generate a [site map](https://en.wikipedia.org/wiki/Site_map) for your website.
@@ -97,7 +257,8 @@ module.exports = config
 > Please note that your site map will list absolute URLs to your pages. That means you have to provide your production gatsby website URL as the value for `GATSBY_SITE_URL` in your `.env` file (see [Setting Up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
 
 ## `siteMapOptions`
-optional, type: `object`, default: `{}`
+
+optional, default: `{}`
 
 The `siteMapOptions` setting is only used if `addSiteMap` is set `true`. The `siteMapOptions` are passed to the [gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/) options so please refer to [gatsby-plugin-sitemap options](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/#options) for the details. Pass any options that you would pass to the `gatsby-plugin-sitemap` options to `siteMapOptions`.
 
@@ -108,10 +269,31 @@ const config = {
   // ...
   addSiteMap: true,
   siteMapOptions: {
-    excludes: ['/contact/']
+    excludes: ["/contact/"],
   },
   // ...
 }
 module.exports = config
 ```
- 
+
+---
+
+## `developLimit`
+
+optional, default: `null`
+
+The `siteMapOptions` setting is only used if `addSiteMap` is set `true`. The `siteMapOptions` are passed to the [gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/) options so please refer to [gatsby-plugin-sitemap options](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/#options) for the details. Pass any options that you would pass to the `gatsby-plugin-sitemap` options to `siteMapOptions`.
+
+> You don't have to worry about passing `siteUrl` to `siteMetadata` (as stated in the plugin documentation) - we take care of that, just make sure to provide `GATSBY_SITE_URL` in your `.env` file (see [Setting Up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
+
+```javascript title=config.js
+const config = {
+  // ...
+  addSiteMap: true,
+  siteMapOptions: {
+    excludes: ["/contact/"],
+  },
+  // ...
+}
+module.exports = config
+```

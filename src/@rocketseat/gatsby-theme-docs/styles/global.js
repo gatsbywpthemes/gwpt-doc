@@ -12,29 +12,33 @@ const ExtendedGlobalStyles = () => {
       <Global
         styles={{
           html: {
-            fontSize: "100%!important"
+            fontSize: "100%!important",
           },
           body: {
             fontFamily:
-              "Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
+              "Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
           },
           "main p": {
             fontSize: "1.125rem",
-            lineHeight: "1.5"
+            lineHeight: "1.5",
           },
           "li  p": {
-            fontSize: "inherit"
+            fontSize: "inherit",
           },
           a: {
-            fontWeight: 500
+            fontWeight: 500,
+            textDecoration: "underline",
+          },
+          "a:hover": {
+            textDecoration: "none",
           },
           "main h2": {
             borderBottom: "2px solid",
             paddingBottom: ".75rem",
-            marginTop: "3rem"
+            marginTop: "3rem",
           },
           hr: {
-            margin: "2rem 0"
+            margin: "2rem 0",
           },
           "code.inline-code:nth-of-type(n)": {
             fontSize: "100%",
@@ -42,21 +46,22 @@ const ExtendedGlobalStyles = () => {
             color: theme.colors.code,
             padding: 0,
             lineHeight: "inherit",
-            verticalAlign: "unset"
+            verticalAlign: "unset",
+            textDecoration: "inherit",
           },
           ".gatsby-highlight .token-line:nth-of-type(n)": {
-            fontSize: "unset"
+            fontSize: "unset",
           },
           ".steps > ul, .steps > ol": {
             padding: 0,
-            listStylePosition: "inside"
+            listStylePosition: "inside",
           },
           ".steps > ol": {
             listStyle: "none",
             "& > li": {
               counterIncrement: "inst",
               position: "relative",
-              paddingLeft: "2rem"
+              paddingLeft: "2rem",
             },
             "& > li:before": {
               content: "counter(inst)",
@@ -73,27 +78,27 @@ const ExtendedGlobalStyles = () => {
               position: "absolute",
               left: 0,
               top: ".25rem",
-              opacity: 0.5
-            }
+              opacity: 0.5,
+            },
           },
           ".steps > ul > li, .steps > ol > li": {
             borderBottom: "1px solid #d6d6d6",
             marginBottom: ".5rem",
-            paddingBottom: ".5rem"
+            paddingBottom: ".5rem",
           },
           ".gatsby-resp-image-wrapper": {
-            margin: "1rem 0"
+            margin: "1rem 0",
           },
           ".search-wrapper": {
             padding: "0 20px",
             marginBottom: "2rem",
             div: {
-              position: "relative"
+              position: "relative",
             },
             label: {
               display: "block",
               marginBottom: ".25rem",
-              padding: 0
+              padding: 0,
             },
             input: {
               padding: ".5rem",
@@ -102,14 +107,14 @@ const ExtendedGlobalStyles = () => {
               background: `transparent`,
               border: `1px solid ${theme.colors.primary}`,
               fontFamily: "inherit",
-              borderRadius: "4px"
+              borderRadius: "4px",
             },
             "input::-webkit-search-cancel-button": {
-              WebkitAppearance: "none"
+              WebkitAppearance: "none",
             },
             "input::placeholder": {
               color: theme.colors.primary,
-              opacity: 0.6
+              opacity: 0.6,
             },
             button: {
               position: "absolute",
@@ -120,22 +125,22 @@ const ExtendedGlobalStyles = () => {
               background: "rgb(222 209 230)",
               border: "none",
               WebkitAppearance: "none",
-              borderRadius: "0 3px 3px 0"
+              borderRadius: "0 3px 3px 0",
             },
             h2: {
-              padding: "0 0 0 10px"
+              padding: "0 0 0 10px",
             },
             ul: {
               listStyle: "none",
               padding: 0,
               li: {
-                padding: 0
+                padding: 0,
               },
               "[aria-current='page']": {
-                fontWeight: "bold"
-              }
-            }
-          }
+                fontWeight: "bold",
+              },
+            },
+          },
         }}
       />
     </>
