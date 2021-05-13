@@ -1,0 +1,19 @@
+---
+title: Overriding WordPress Theme Options
+description: Learn how to override WordPress Theme Options in config.js
+---
+
+You can override some of the WordPress Theme Options set via WordPress Customizer ([see WordPress Theme Options](/configuration/wp)) in your Gatsby `config.js` file.
+
+```javascript title=config.js
+const config = {
+  // ...
+  addWordPressComments: false,
+  addWordPressSearch: true,
+  addColorModes: false,
+  socialFollowLinks: [],
+}
+module.exports = config
+```
+
+The options set in `config.js` will override your WordPress settings.

@@ -1,0 +1,144 @@
+---
+title: Code Highlighting
+description: How code highlighting works and how you can configure it
+---
+
+We thought you may sometimes blog about code, and we added support for block code highlighting by default. Under the hood, we use [Prism](https://prismjs.com/).
+
+## On the WordPress side
+
+## Change theme
+
+You can easily replace the default `twilight` theme by:
+
+- coy,
+- dark,
+- funky,
+- okaidia,
+- solarizedlight,
+- tomorrow
+
+To modify the theme, you will have to edit the `.babelrc` file (in the root of your starter).
+
+```json title=.babelrc highlight={9} lineNumbers=true
+{
+  "presets": ["babel-preset-gatsby"],
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": ["javascript", "css", "markup", "typescript"],
+        "plugins": ["show-language"],
+        "theme": "tomorrow",
+        "css": true
+      }
+    ]
+  ]
+}
+```
+
+You can also use any additional theme available in the [`prism-themes` repository](https://github.com/PrismJS/prism-themes)
+
+<div class="steps">
+
+1. Install `prism-themes` in your starter
+
+   ```bash
+   # from your starter folder
+   yarn add prism-themes
+   ```
+
+2. Deactivate the default theme in the `.babelrc` file
+
+   ```json title=.babelrc highlight={7} lineNumbers=true
+   {
+     "presets": ["babel-preset-gatsby"],
+     "plugins": [
+       [
+         "prismjs",
+         {
+           "languages": ["javascript", "css", "markup", "php"],
+           "plugins": ["show-language"],
+           // "theme": "twilight",
+           "css": true
+         }
+       ]
+     ]
+   }
+   ```
+
+3. Add an additional theme to the `gatsby-browser.js` file in the root of your starter (you might need to create this file)
+
+   ```js title=gatsby-browser.js
+   import "prism-themes/themes/prism-duotone-forest.css"
+   ```
+
+</div>
+
+## Configure languages
+
+You might need support for more languages. By default we add support to JavaScript, HTML (markup), CSS, and PHP.
+To modify the list of supported languages, you will need to edit the `.babelrc` (in the root of your starter).  
+In the following example, we removed the support for PHP and addded support for TypeScript (line 7).
+
+```json title=.babelrc highlight={7} lineNumbers=true
+{
+  "presets": ["babel-preset-gatsby"],
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": ["javascript", "css", "markup", "typescript"],
+        "plugins": ["show-language"],
+        "theme": "twilight",
+        "css": true
+      }
+    ]
+  ]
+}
+```
+
+## Add more options
+
+```json title=.babelrc highlight={8} lineNumbers=true
+{
+  "presets": ["babel-preset-gatsby"],
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": ["javascript", "css", "markup", "typescript"],
+        "plugins": ["show-language", "line-numbers", "copy-to-clipboard"],
+        "theme": "twilight",
+        "css": true
+      }
+    ]
+  ]
+}
+```
+
+> Please note that line numbers will be added only to the snippets that have "Show line numbers" activated in your WordPress code block.
+
+## Deactivate code highlighting
+
+If you don't need code highlighting in your project, and you want to optimize your bundle size, you can deactivate. You will have to rename or remove the `ActivatePrism.js` file from your starter folder `src/@gatsbywpthemes/{theme-name}/utils`.
+
+**Example:**
+
+```bash
+.
+├── .babelrc
+├── .env
+# ...
+├── package.json
+├── src
+│   ├── @gatsbywpthemes
+│   │   └── gatsby-theme-wp-base
+│   │       ├── chakra
+│   │       ├── components
+│   │       └── utils
+│   │           # renamed to ActivatePrism-old.js, you can also delete this file
+│   │           └── 🔄 ActivatePrism-old.js
+│   └── styles
+└── static
+```

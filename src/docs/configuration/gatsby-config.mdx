@@ -1,5 +1,5 @@
 ---
-title: Settings in config.js
+title: Gatsby config.js
 description: Configure your Gatsby website via config.js
 ---
 
@@ -10,7 +10,10 @@ We discuss each one in detail in the Options section.
 const config = {
   pathPrefix: "",
   webfontsOptions: {},
-  gaTrackingId: 0,
+  gaUniversalTrackingId: 0,
+  gaUniversalOptions: {},
+  ga4TrackingId: 0,
+  ga4Options: {},
   googleTagManagerId: 0,
   googleTagManagerOptions: {},
   addSiteMap: false,
@@ -79,18 +82,19 @@ const config = {
 module.exports = config
 ```
 
-Now Abril Fatface and Lora (all specified variants) are loaded and available in your project. You still have to specify how you want to use them in the `configTypography.js` file :
+Now Abril Fatface and Lora (in the specified variants) are loaded and available in your project. You still have to specify how you want to use them in the `configTypography.js` file :
 
 ```js title=configTypography.js
 const typographySettings = {
   fonts: {
     body: "Lora, serif",
     heading: "Abril Fatface, serif",
+    // mono: 'SFMono-Regular, Menlo,Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
   },
   fontWeights: {
+    // body: 400,
     heading: 400, // Abril Fatface comes as one-variant 400 font face
-    body: 400,
-    bold: 700,
+    // bold: 700,
   },
   // ..
 }
@@ -99,7 +103,6 @@ const typographySettings = {
 If other options are not specified, the plugin defaults are as follows :
 
 ```js
-
 formats: ["woff2", "woff"],
 useMinify: true,
 usePreload: true,
@@ -282,17 +285,12 @@ module.exports = config
 
 optional, default: `null`
 
-The `siteMapOptions` setting is only used if `addSiteMap` is set `true`. The `siteMapOptions` are passed to the [gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/) options so please refer to [gatsby-plugin-sitemap options](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/#options) for the details. Pass any options that you would pass to the `gatsby-plugin-sitemap` options to `siteMapOptions`.
-
-> You don't have to worry about passing `siteUrl` to `siteMetadata` (as stated in the plugin documentation) - we take care of that, just make sure to provide `GATSBY_SITE_URL` in your `.env` file (see [Setting Up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
+If you work on a big website, you might not need to fetch all the data during the development. The `developLimit` lets you limit the maximum amount of objects of each type that are fetched from WordPress.
 
 ```javascript title=config.js
 const config = {
   // ...
-  addSiteMap: true,
-  siteMapOptions: {
-    excludes: ["/contact/"],
-  },
+  developLimit: 3,
   // ...
 }
 module.exports = config

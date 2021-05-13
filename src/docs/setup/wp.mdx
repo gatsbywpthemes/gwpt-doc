@@ -3,7 +3,6 @@ title: Setting Up WordPress
 description: Setting Up your WordPress site to work with Gatsby.
 ---
 
-
 You will need a running WordPress installation. Your content comes from your WordPress website.
 Gatsby fetches the data from your WordPress website, which means your WordPress website requires some initial configuration to expose the data in the right format.
 
@@ -24,34 +23,33 @@ To have a quick all-in-one installation experience, you will use a free, third p
 1. Install and activate _All-in-One WP Migration_ plugin. It is available in the official WordPress repo.
 1. Click **Import** in the _All-in-One WP Migration_ menu.
 1. The starter size may exceed the _Maximum upload file size_ available (this may vary depending on your hosting).  
-  _All-in-One WP Migration_ gives you a few solutions here. An easy way to upgrade the import size to `512MB` is by [downloading and installing this add-on plugin.](https://import.wp-migration.com/all-in-one-wp-migration-file-extension.zip)
+   _All-in-One WP Migration_ gives you a few solutions here. An easy way to upgrade the import size to `512MB` is by [downloading and installing this add-on plugin.](https://import.wp-migration.com/all-in-one-wp-migration-file-extension.zip)
 1. Chose **Import from File** and the `.wpress` package file corresponding to your Gatsby starter.
-    <img
-    src="../assets/import.png"
-    alt="A screenshot from the import process with All in One WP Migration"
-  />
+   {" "}
+   <img
+     src="../assets/import.png"
+     alt="A screenshot from the import process with All in One WP Migration"
+   />
 1. Our starter is now installed!
-1. Log in to your website. You will have to use the following temporary credentials:  
-   - username: `admin`  
+1. Log in to your website. You will have to use the following temporary credentials:
+   - username: `admin`
    - password: `gatsbyWpThemes`
 1. Go to **Settings > Permalinks** and save your permalinks structure (click the **Save Changes** button).
 1. Create a new user with secure credentials, log in with your new credentials and delete the temporary admin account.
 1. **That's it! Your WordPress website is ready for Gatsby.**
 
-
 </div>
-
 
 ## Manual way
 
-If you already have a WordPress website with some content you want to preserve, you will need to to set it up manually.
+If you already have a WordPress website with some content you want to preserve, you will need to set it up manually.
 
 <div class="steps">
 
 1. Install the recommended WordPress themes:
    - the generic, parent theme **Headless WP**
    - the starter-specific child theme (for example **Headless WP Base Child**)
-1.Activate the child theme
+     1.Activate the child theme
 1. The theme will automatically check if the required and recommended plugins are activated
 1. The theme provides a one-click plugins-installation. You can also install required and recommended plugins, as listed below, manually.
 
@@ -113,4 +111,3 @@ If you already have a WordPress website with some content you want to preserve, 
 ### Permalinks structure
 
 Your WordPress installation must have pretty permalinks enabled. (Most hosting services provide support for pretty permalinks so this is rarely an issue.) Also, the permalink structure **must not** be the default plain one, `http://example.com/?p=123`. You can modify the permalinks structure via your WordPress dashboard area in **Settings > Permalinks.**
-

@@ -16,13 +16,27 @@
       link: "/configuration/wp-core"
     - label: "WordPress Theme Options"
       link: "/configuration/wp"
-    - label: "Setting Up Gatsby"
+    - label: "Gatsby config.js"
       link: "/configuration/gatsby-config"
+
+- label: Features
+  items:
+    - label: "Contact Forms"
+      link: "/features/contact-forms"
+    - label: Galleries
+      link: /features/galleries
+    - label: "Code Highlighting"
+      link: /features/code-highlighting
 - label: More
   items:
-    - label: "Shadowing"
-      link: "/usage/shadowing"
+    - label: "Overriding WP options"
+      link: "/more/override-wp"
+
+- label: Links
+  items:
+    - label: "gatsbywpthemes.com"
+      link: https://gatsbywpthemes.com
     - label: FAQ
-      link: /faq
-    - label: "Github"
-      link: https://github.com/rocketseat/gatsby-themes
+      link: https://gatsbywpthemes.com/faq
+    - label: "Gatsby Documentation"
+      link: https://gatsbyjs.com
