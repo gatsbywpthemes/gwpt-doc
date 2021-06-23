@@ -3,14 +3,7 @@ import { Index } from "lunr"
 import { graphql, useStaticQuery } from "gatsby"
 import SearchResults from "./search-results"
 import { SearchContext } from "../context"
-import {
-  Container,
-  LogoContainer,
-  List,
-  Heading,
-  Item,
-  SubItem
-} from "@rocketseat/gatsby-theme-docs/src/components/Sidebar/styles"
+import { Heading } from "@rocketseat/gatsby-theme-docs/src/components/Sidebar/styles"
 
 const SearchWidget = () => {
   const { query, setQuery, results, setResults } = useContext(SearchContext)
@@ -38,7 +31,7 @@ const SearchWidget = () => {
       const search = index.search(query).map(({ ref }) => {
         return {
           slug: ref,
-          ...store[ref]
+          ...store[ref],
         }
       })
       setResults(search)

@@ -6,9 +6,9 @@
   link: /getting-started
 - label: Setup
   items:
-    - label: "Setting Up WordPress"
+    - label: "Setting up WordPress"
       link: "/setup/wp"
-    - label: "Setting Up Gatsby"
+    - label: "Setting up Gatsby"
       link: "/setup/gatsby"
 - label: Configuration
   items:

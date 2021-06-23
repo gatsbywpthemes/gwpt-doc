@@ -3,4 +3,19 @@ title: Contact Forms
 description: Setting Up Contact Forms.
 ---
 
-Our themes port the forms built with Contact Form 7 WordPress plugin directly to Gatsby. You create your contact forms, add them to the pages, and that's it.
+Our themes port the forms built with Contact Form 7 WordPress plugin directly to Gatsby. You create your contact forms, add them to the pages with a shortcode, and that's it.
+
+You can find a working form example with all supported fields in your starter demo `/form-example/`.
+
+> The `[acceptance]` field is not supported. It is deacivated in our Headless WP theme.  
+> You can use the checkboxes (`[checkbox]` or `[checkbox*]`) instead:
+>
+> ```
+> [checkbox*
+> checkbox-208
+> use_label_element
+> "By checking this field, you agree to our Privacy Policy."]
+> ```
+
+> The **_ Make checkboxes exclusive_** feature for checkboxes is not supported.  
+> You can use radio buttons (`[radio]`) instead.

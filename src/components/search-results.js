@@ -1,12 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import {
-  Container,
-  LogoContainer,
-  List,
   Heading,
   Item,
-  SubItem
 } from "@rocketseat/gatsby-theme-docs/src/components/Sidebar/styles"
 
 const SearchResults = ({ results }) => {

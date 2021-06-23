@@ -1,5 +1,5 @@
 import React from "react"
-import { useTheme, Global, css } from "@emotion/react"
+import { useTheme, Global } from "@emotion/react"
 import GlobalStyle from "@rocketseat/gatsby-theme-docs/src/styles/global"
 
 console.log(GlobalStyle)
@@ -22,7 +22,7 @@ const ExtendedGlobalStyles = () => {
             fontSize: "1.125rem",
             lineHeight: "1.5",
           },
-          "li  p": {
+          "li p": {
             fontSize: "inherit",
           },
           a: {
@@ -39,6 +39,12 @@ const ExtendedGlobalStyles = () => {
           },
           hr: {
             margin: "2rem 0",
+          },
+          "pre.language-sh": {
+            paddingTop: "1.5rem",
+          },
+          "pre.language-sh:before": {
+            content: "none",
           },
           "code.inline-code:nth-of-type(n)": {
             fontSize: "100%",
