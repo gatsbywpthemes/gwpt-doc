@@ -3,7 +3,7 @@ module.exports = {
     siteTitle: `Gatsby WP Themes Documentation`,
     defaultTitle: `Gatsby WP Themes Documentation`,
     siteTitleShort: `Gatsby WP Themes Doc`,
-    siteDescription: `Out of the box Gatsby Theme for creating documentation websites easily and quickly`,
+    siteDescription: `The detailed documentation for Gatsby WP Themes - Gatsby themes designed to work with your WordPress content.`,
     siteUrl: `https://doc.gatsbywpthemes.com`,
     siteAuthor: `@gatsbywpthemes`,
     siteImage: `/banner.png`,
