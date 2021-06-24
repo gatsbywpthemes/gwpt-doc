@@ -22,6 +22,9 @@ const ExtendedGlobalStyles = () => {
             fontSize: "1.125rem",
             lineHeight: "1.5",
           },
+          "main > div:first-of-type": {
+            maxWidth: "max( calc(100% - 200px), 640px)",
+          },
           "li p": {
             fontSize: "inherit",
           },

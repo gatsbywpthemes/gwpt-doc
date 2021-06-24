@@ -10,16 +10,17 @@ A number of the "core" WordPress settings are fetched by Gatsby and used by our 
 ## Settings > General
 
 In the General Settings tab in your WordPress Dashboard, you will configure
+
 - Site title
 - Tagline
 - Administration Email Address (this email will be used as a send-to email for your contact form)
 - Site Language
-   > Please note that for the moment, our themes are available only in English.
-
+  > Please note that for the moment, our themes are available only in English.
 
 ## Settings > Reading
 
-In the Reading Settings tab you can define 
+In the Reading Settings tab you can define
+
 - what your homepage displays, the homepage static page and the posts page if applied
 - the number of posts displayed per blog/archive pages
 
@@ -33,4 +34,19 @@ To globally disable support for WordPress comment, see [WordPress Theme Options 
 
 ## Settings > Permalinks
 
+🚫 The permalink structure **must not** be the default plain one, like that : `http://example.com/?p=123`.
+
+> That also means that your WordPress installation must have pretty permalinks enabled. Most hosting services provide support for pretty permalinks so this is rarely an issue.
+
 ## Menus
+
+Your WordPress menu is fetched by Gatsby. Just make sure to check the Display location field.
+
+<div style="border: 1px dashed; margin-bottom: 1.5rem">
+  <img
+    src="../assets/displaylocation.png"
+    alt="Menu Settings with Display location checkbox checked"
+  />
+</div>
+
+> If, for some reason, you are not using our Headless WP WordPress theme, please make sure that your menu location is `PRIMARY`.

@@ -1,0 +1,88 @@
+---
+title: Installing Your Gatsby Starter
+description: Setting up your development environment and installing your package.
+---
+
+## Set up Your Development Environment
+
+To build your Gatsby website locally on your computer, you will need to set up your local machine. The official Gatsby documentation provides a <a href="https://www.gatsbyjs.org/tutorial/part-zero/" target="_blank" rel="noopener noreferrer">step by step tutorial on how to set up your development environment.</a>  
+Follow their tutorial and make sure to have `gatsby-cli` correctly installed.
+
+## Installing your Gatsby starter
+
+Unzip the starter of your choice.
+
+```bash title=Starter structure copy=false
+├── .babelrc
+├── ✏️✏️✏️ .env-sample # rename to .env
+├── .gitignore
+├── .npmrc
+├── README.md
+├── ✏️✏️ config.js
+├── ✏️ configColors.js
+├── ✏️ configSizes.js
+├── ✏️ configTypography.js
+├── gatsby-config.js
+├── package.json
+├── src
+│   ├── 🗂 @gatsbywpthemes
+│   └── 🗂 styles
+└── 🗂 static
+
+# ✏️✏️✏️ - you have to edit this file
+# ✏️✏️  - you will probably need to edit this file
+# ✏️   - you might want to edit this file
+```
+
+This starter cannot be installed without providing the secret auth token that you received in your email. The token is used in the `.npmrc` file in the root of your starter. The `.npmrc` is checked to the version control. That means, you **should not** replace the `${GWPT_AUTH_TOKEN}` variable with the token value.
+
+```sh title=".npmrc"
+@gatsbywpthemes:registry=https://npm.cloudsmith.io/gatsbywpthemes/gatsby-themes/
+//npm.cloudsmith.io/gatsbywpthemes/gatsby-themes/:_authToken=${GWPT_AUTH_TOKEN}
+always-auth
+```
+
+### Adding your token to your startup shell file
+
+Instead, you can add the environment variable to your startup shell file. You just have to do it once and it will be available for all starters. You startup shell file will be either:
+
+- `~/.zshrc` if your shell is `zsh`
+- `~/.bashrc` if your shell is `bash`
+
+> If you are not sure what shell you are using, type `echo $0` in your terminal.
+
+Open you terminal and paste this code, with YOUR_TOKEN replaced by your secret token:
+
+```shell
+echo "export GWPT_AUTH_TOKEN=YOUR_TOKEN" >> ~/.zshrc && source ~/.zshrc
+```
+
+or (if you are using `bash`):
+
+```shell
+echo "export GWPT_AUTH_TOKEN=YOUR_TOKEN" >> ~/.bashrc && source ~/.bashrc
+```
+
+Make sure to be in the root of your starter. Run `yarn` command to install all dependencies
+
+### Alternative solution
+
+If you can't or don't want to add your token to the shell file, you can add it as an environmental variable for every command that you run, like that:
+
+- to install dependencies:
+  ```shell
+  GWPT_AUTH_TOKEN=YOUR_TOKEN yarn
+  ```
+- to run your development server:
+  ```shell
+  GWPT_AUTH_TOKEN=YOUR_TOKEN gatsby develop
+  ```
+
+## Running your development server
+
+<div class="steps">
+
+1. Rename the `.env.sample` file as `.env`. In your `.env` file provide the url of your WordPress source website. You can [read more about your .env file here.](/setup/gatsby/#setting-up-the-env-file)
+2. Run `gatsby develop` to start the development server.
+
+</div>

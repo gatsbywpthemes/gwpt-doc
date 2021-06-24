@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    siteTitle: `Rocket Docs`,
-    defaultTitle: `Rocket Docs`,
-    siteTitleShort: `Rocket Docs`,
+    siteTitle: `Gatsby WP Themes Documentation`,
+    defaultTitle: `Gatsby WP Themes Documentation`,
+    siteTitleShort: `Gatsby WP Themes Doc`,
     siteDescription: `Out of the box Gatsby Theme for creating documentation websites easily and quickly`,
-    siteUrl: `https://rocketdocs.netlify.app`,
-    siteAuthor: `@rocketseat`,
+    siteUrl: `https://doc.gatsbywpthemes.com`,
+    siteAuthor: `@gatsbywpthemes`,
     siteImage: `/banner.png`,
     siteLanguage: `en`,
     themeColor: `#8257E6`,
@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Rocketseat Gatsby Themes`,
-        short_name: `RS Gatsby Themes`,
+        name: `Gatsby WP Themes Documentation`,
+        short_name: `Gatsby WP Themes Docs`,
         start_url: `/`,
         background_color: `#ffffff`,
         display: `standalone`,
@@ -44,9 +44,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://rocketdocs.netlify.app`,
+        siteUrl: `https://doc.gatsbywpthemes.com`,
       },
     },
     `gatsby-plugin-offline`,
   ],
-};
+}

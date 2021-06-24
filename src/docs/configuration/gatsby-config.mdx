@@ -257,7 +257,7 @@ const config = {
 module.exports = config
 ```
 
-> Please note that your site map will list absolute URLs to your pages. That means you have to provide your production gatsby website URL as the value for `GATSBY_SITE_URL` in your `.env` file (see [Setting Up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
+> Please note that your site map will list absolute URLs to your pages. That means you have to provide your production gatsby website URL as the value for `GATSBY_SITE_URL` in your `.env` file (see [Setting up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
 
 ## `siteMapOptions`
 
@@ -265,7 +265,7 @@ optional, default: `{}`
 
 The `siteMapOptions` setting is only used if `addSiteMap` is set `true`. The `siteMapOptions` are passed to the [gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/) options so please refer to [gatsby-plugin-sitemap options](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/#options) for the details. Pass any options that you would pass to the `gatsby-plugin-sitemap` options to `siteMapOptions`.
 
-> You don't have to worry about passing `siteUrl` to `siteMetadata` (as stated in the plugin documentation) - we take care of that, just make sure to provide `GATSBY_SITE_URL` in your `.env` file (see [Setting Up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
+> You don't have to worry about passing `siteUrl` to `siteMetadata` (as stated in the plugin documentation) - we take care of that, just make sure to provide `GATSBY_SITE_URL` in your `.env` file (see [Setting up the `.env` File](/setup/gatsby/#setting-up-the-env-file)).
 
 ```javascript title=config.js
 const config = {
