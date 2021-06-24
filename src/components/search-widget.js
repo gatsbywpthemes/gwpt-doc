@@ -43,7 +43,7 @@ const SearchWidget = () => {
     <div className="search-wrapper" mb="5">
       <form role="search" onSubmit={handleSearchSubmit} mb="5">
         <Heading as="label" htmlFor="search" className="visually-hidden">
-          Que cherchez vous ?
+          What are you looking for ?
         </Heading>
         <div position="relative">
           <input
