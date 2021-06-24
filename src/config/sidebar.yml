@@ -33,7 +33,7 @@
       link: /features/code-highlighting
 - label: More
   items:
-    - label: "Overriding WP options"
+    - label: "Overriding WP Options"
       link: "/more/override-wp"
 
 - label: Links
