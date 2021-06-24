@@ -40,7 +40,5 @@
   items:
     - label: "gatsbywpthemes.com"
       link: https://gatsbywpthemes.com
-    - label: FAQ
-      link: https://gatsbywpthemes.com/faq
     - label: "Gatsby Documentation"
       link: https://gatsbyjs.com
