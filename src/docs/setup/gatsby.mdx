@@ -5,13 +5,21 @@ description: Setting up your Gatsby site.
 
 ## Configure your Gatsby Site
 
-To set up your Gatsby website, you might need to edit the configuration files ( ✏️ ) located at the root of your project.
+To set up your Gatsby website, you might need to edit the configuration files located at the root of your project.
 
 - ✏️✏️✏️ `.env` - basic **mandatory** configuration
 - ✏️✏️ `config.js` - further configuration, general features
 - ✏️ `configColors.js` - if you want to change the theme colors
 - ✏️ `configSizes.js` - if you want to change some layout values (responsive breakpoints, container width, etc.)
 - ✏️ `configTypography.js` - if you want to modify the typography settings (font family, heading sizes etc.)
+
+<div class="small">
+
+> ✏️✏️✏️ - you have to edit this file  
+> ✏️✏️ - you will probably need to edit this file  
+> ✏️ - you might want to edit this file
+
+</div>
 
 ## Setting up the `.env` File
 
@@ -22,7 +30,7 @@ Some crucial settings of your Gatsby website are set as environment variables. T
 
 The easiest way to set up your `.env` file is to rename the existing `.env-sample` to `.env`. You will find the sample `.env-sample` file in the root of each starter.
 
-```sh title=.env-sample
+```bash title=.env-sample
 # rename this file to .env (or .env.development and .env.production)
 # supply the values listed below
 # make sure to uncomment the lines that you edit
@@ -41,7 +49,7 @@ Alternatively, you can create two separate `.env` files `.env.development` and `
 
 Uncomment the `GATSBY_WP_URL` line and replace the `the_url_of_your_wordpress_website` with the URL of your WP website, for example:
 
-```sh title=.env
+```bash title=.env
 GATSBY_WP_URL=https://wp.example.com
 ```
 
@@ -49,7 +57,7 @@ GATSBY_WP_URL=https://wp.example.com
 
 Uncomment the `GATSBY_SITE_URL` line and replace the `the_url_to_your_published_gatsby_site` with the URL of your WP website, for example:
 
-```sh title=.env
+```bash title=.env
 GATSBY_WP_URL=https://gatsby.example.com
 ```
 
@@ -63,7 +71,7 @@ Check [the plugin documentation](https://www.gatsbyjs.org/packages/gatsby-plugin
 
 example:
 
-```sh title=.env
+```bash title=.env
 GATSBY_MAILCHIMP_ENDPOINT=https://gmail.us20.list-manage.com/subscribe/post?u=xxxyyyzzz&amp;id=xxyyzz
 ```
 
@@ -73,5 +81,5 @@ Things you should be aware of:
 
 - `.env`, `.env.development` or `.env.production` are not checked into version control. If you need to check your `.env` file, you can remove it from the `.gitignore` file.
 - All variables prefixed with GATSBY\_ will be made available to client-side code.
-- You will have to make sure that your environment variables are available to the build tool (e.g., Netlify).
+- You will have to make sure that your environment variables are available to the build tool (see the [Deployment section](/more/deployment)).
 - After modifying the `.env` file, you will need to restart the server.

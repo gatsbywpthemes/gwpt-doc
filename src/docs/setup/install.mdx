@@ -5,8 +5,18 @@ description: Setting up your development environment and installing your package
 
 ## Set up Your Development Environment
 
-To build your Gatsby website locally on your computer, you will need to set up your local machine. The official Gatsby documentation provides a <a href="https://www.gatsbyjs.org/tutorial/part-zero/" target="_blank" rel="noopener noreferrer">step by step tutorial on how to set up your development environment.</a>  
-Follow their tutorial and make sure to have `gatsby-cli` correctly installed.
+To build your Gatsby website locally on your computer, you will need to set up your local machine. The official Gatsby documentation provides a <a href="https://www.gatsbyjs.org/tutorial/part-zero/" target="_blank" rel="noopener noreferrer">step by step tutorial on how to set up your development environment.</a>
+
+The official Gatsby tutorial covers intalling Node.js, Git, Gatsby command line interface (gatsby-cli) and Visual Studio Code editor.
+
+---
+
+You also **have to install Yarn** package manager. [Yarn](https://classic.yarnpkg.com/en/) is an alternative the `npm` standard Node's package manager.  
+**Our starters require Yarn.** You can find [here how to install Yarn on your operating system.](https://classic.yarnpkg.com/en/docs/install)
+
+---
+
+Before going any further make sure to have `gatsby-cli` and `yarn` installed on your local machine.
 
 ## Installing your Gatsby starter
 
@@ -34,9 +44,9 @@ Unzip the starter of your choice.
 # ✏️   - you might want to edit this file
 ```
 
-This starter cannot be installed without providing the secret auth token that you received in your email. The token is used in the `.npmrc` file in the root of your starter. The `.npmrc` is checked to the version control. That means, you **should not** replace the `${GWPT_AUTH_TOKEN}` variable with the token value.
+Your starter cannot be installed without providing the secret auth token that you received in your email. The token is used in the `.npmrc` file in the root of your starter. The `.npmrc` is checked to the version control. That means, you **should not** replace the `${GWPT_AUTH_TOKEN}` variable with the token value.
 
-```sh title=".npmrc"
+```bash title=".npmrc"
 @gatsbywpthemes:registry=https://npm.cloudsmith.io/gatsbywpthemes/gatsby-themes/
 //npm.cloudsmith.io/gatsbywpthemes/gatsby-themes/:_authToken=${GWPT_AUTH_TOKEN}
 always-auth

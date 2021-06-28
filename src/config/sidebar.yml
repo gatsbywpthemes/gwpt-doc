@@ -35,6 +35,8 @@
   items:
     - label: "Overriding WP Options"
       link: "/more/override-wp"
+    - label: "Deployment"
+      link: "/more/deployment"
 
 - label: Links
   items:

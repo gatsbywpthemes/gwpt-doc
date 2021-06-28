@@ -37,13 +37,13 @@
 
 1. Create the website.
 
-   ```sh
+   ```bash
    npx gatsby new rocket-docs https://github.com/rocketseat/gatsby-starter-rocket-docs
    ```
 
 2. Start developing.
 
-   ```sh
+   ```bash
    cd rocket-docs
    gatsby develop
    ```

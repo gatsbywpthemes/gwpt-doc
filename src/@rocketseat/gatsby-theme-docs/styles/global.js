@@ -43,10 +43,10 @@ const ExtendedGlobalStyles = () => {
           hr: {
             margin: "2rem 0",
           },
-          "pre.language-sh": {
+          "pre.language-sh, pre.language-sh": {
             paddingTop: "1.5rem",
           },
-          "pre.language-sh:before": {
+          "pre.language-sh:before, pre.language-bash:before": {
             content: "none",
           },
           "code.inline-code:nth-of-type(n)": {
@@ -60,6 +60,9 @@ const ExtendedGlobalStyles = () => {
           },
           ".gatsby-highlight .token-line:nth-of-type(n)": {
             fontSize: "unset",
+          },
+          ".small p": {
+            fontSize: ".875rem",
           },
           ".steps > ul, .steps > ol": {
             padding: 0,
