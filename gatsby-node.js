@@ -1,6 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const marked = require('marked')
+const marked = require("marked")
 const striptags = require(`striptags`)
 const lunr = require(`lunr`)
 const { GraphQLJSONObject } = require("graphql-type-json")
@@ -11,10 +11,9 @@ exports.createResolvers = ({ cache, createResolvers }) => {
       LunrIndex: {
         type: GraphQLJSONObject,
         resolve: (source, args, context, info) => {
-          const mdNodes = context.nodeModel
-            .getAllNodes({
-              type: `Mdx`,
-            })
+          const mdNodes = context.nodeModel.getAllNodes({
+            type: `Mdx`,
+          })
           const type = info.schema.getType(`Mdx`)
           return createIndex(mdNodes, type, cache)
         },
@@ -33,16 +32,16 @@ const createIndex = async (mdNodes, type, cache) => {
   const store = {}
   // iterate over all nodes
   for (const node of mdNodes) {
-    const { rawBody} = node
-    const {slug} = node.fields
-    const {title} = node.frontmatter
+    const { rawBody } = node
+    const { slug } = node.fields
+    const { title } = node.frontmatter
     //const slug = await type.getFields().slug.resolve(node)
     //const html = await type.getFields().html.resolve(node)
     // once html is resolved, add a slug-content object to the documents array
     documents.push({
       slug,
       title,
-      content: striptags(marked(rawBody)),
+      content: striptags(marked(rawBody)).replace(/&quot;/g, ""),
     })
     console.log(title, slug)
     store[slug] = {

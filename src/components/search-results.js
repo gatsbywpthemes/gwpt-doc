@@ -13,7 +13,11 @@ const SearchResults = ({ results }) => {
         {results.map((result) => (
           <Item key={result.slug}>
             <Link
-              to={`${result.slug}`}
+              to={`${
+                result.slug.endsWith("/")
+                  ? result.slug.slice(0, -1)
+                  : result.slug
+              }`}
               dangerouslySetInnerHTML={{ __html: result.title }}
             />
           </Item>

@@ -2,8 +2,6 @@ import React from "react"
 import { useTheme, Global } from "@emotion/react"
 import GlobalStyle from "@rocketseat/gatsby-theme-docs/src/styles/global"
 
-console.log(GlobalStyle)
-
 const ExtendedGlobalStyles = () => {
   const theme = useTheme()
   return (
@@ -111,6 +109,10 @@ const ExtendedGlobalStyles = () => {
               display: "block",
               marginBottom: ".25rem",
               padding: 0,
+              letterSpacing: "revert",
+            },
+            "form + h2": {
+              letterSpacing: "revert",
             },
             input: {
               padding: ".5rem",
