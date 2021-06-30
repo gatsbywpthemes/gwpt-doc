@@ -10,10 +10,8 @@ We discuss each one in detail in the Options section.
 const config = {
   pathPrefix: "",
   webfontsOptions: {},
-  gaUniversalTrackingId: 0,
-  gaUniversalOptions: {},
-  ga4TrackingId: 0,
-  ga4Options: {},
+  gaTrackingId: 0,
+  gaOptions: {},
   googleTagManagerId: 0,
   googleTagManagerOptions: {},
   addSiteMap: false,
@@ -118,52 +116,7 @@ formatAgents: {
 
 ---
 
-## `gaUniversalTrackingId`
-
-optional, type: `string`
-
-You can add Google Analytics to your Gatsby site by
-providing your Google Analytics tracking ID.
-Also, please note that the Google Analytics functionality is disabled in the development mode.  
-Under the hood we use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-analytics/). You can pass any additional available settings with `gaUniversalOptions`.
-
-```javascript title=config.js
-const config = {
-  // ...
-  gaUniversalTrackingId: "UA-111111111-1",
-  // ...
-}
-module.exports = config
-```
-
-> As you can read on the [`gatsby-plugin-google-analytics`](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-analytics/) website, it uses the Google’s `analytics.js` file which is deprecated by Google in favor of the `gtag.js`. We cover that for you - you can use [`ga4TrackingId`](#ga4trackingid) and [`ga4Options`](#ga4options) instead of `gaUniversalTrackingId` and `gaUniversalOptions`.
-
-## `gaUniversalOptions`
-
-optional, default: `{}`
-
-Our themes use the official Gatsby plugin [`gatsby-plugin-google-analytics`](https://www.npmjs.com/package/gatsby-plugin-google-analytics), and
-you have access to all [its options.](https://www.npmjs.com/package/gatsby-plugin-google-analytics#how-to-use)
-
-```javascript title=config.js
-const config = {
-  // ...
-  gaUniversalTrackingId: "UA-111111111-1",
-  gaUniversalOptions: {
-    head: true,
-  },
-  // ...
-}
-module.exports = config
-```
-
-```javascript
-
-```
-
----
-
-## `ga4TrackingId`
+## `gaTrackingId`
 
 optional, type: `string`
 
@@ -174,13 +127,13 @@ Also, please note that the Google Analytics functionality is disabled in the dev
 ```javascript title=config.js
 const config = {
   // ...
-  ga4TrackingId: "G-XXXXXXXXXX",
+  gaTrackingId: "G-XXXXXXXXXX",
   // ...
 }
 module.exports = config
 ```
 
-## `ga4Options`
+## `gaOptions`
 
 optional, default: `{}`
 
@@ -189,8 +142,8 @@ Under the hook we use the official Gatsby plugin [`gatsby-plugin-google-gtag`](h
 ```javascript title=config.js
 const config = {
   // ...
-  ga4TrackingId: "G-XXXXXXXXXX",
-  ga4Options: {
+  gaTrackingId: "G-XXXXXXXXXX",
+  gaOptions: {
     pluginConfig: {
       head: true,
     },
