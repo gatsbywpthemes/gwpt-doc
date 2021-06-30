@@ -10,7 +10,7 @@
       link: "/setup/wp"
     - label: "Installing Gatsby Starter"
       link: "/setup/install"
-    - label: "Setting up Gatsby"
+    - label: "Setting up Gatsby Site"
       link: "/setup/gatsby"
 - label: Configuration
   items:

@@ -114,6 +114,9 @@ const ExtendedGlobalStyles = () => {
             "form + h2": {
               letterSpacing: "revert",
             },
+            "ul li": {
+              lineHeight: 1.4,
+            },
             input: {
               padding: ".5rem",
               fontSize: "1rem",

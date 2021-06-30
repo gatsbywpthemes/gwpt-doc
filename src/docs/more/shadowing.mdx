@@ -14,14 +14,14 @@ To override (shadow) the components, you will need to place the files you need t
 Let's modify the footer text in the `base` starter.
 The files structure in the `gatsby-theme-wp-base` theme is
 
-```bash title=@gatsbywpthemes/gatsby-theme-wp-base
+```bash title=@gatsbywpthemes/gatsby-theme-wp-base highlight={7}
 ├── src
 │   └── components
 │       ├── archive
 │       ├── comments
 │       ├── footer
-│       │   └── Footer.js
-│       │   └── FooterContent.js # 👈 we will override this file
+│       │   ├── Footer.js
+│       │   ├── FooterContent.js # 👈 we will override this file
 │       │   └── index.js
 │       ├── header
 │       ├── ....
@@ -49,7 +49,7 @@ You need to add the `FooterContent.js` file in your starter's `src/@gatsbywpthem
 
 Now, the structure or your starter should be as follows:
 
-```bash title=starter-base
+```bash title=starter-base highlight={10-11}
 ├── .env
 ├── ...
 ├── src
@@ -67,15 +67,15 @@ Now, the structure or your starter should be as follows:
 
 ```js title=src/@gatsbywpthemes/gatsby-theme-wp-base/components/footer/Footer.js
 import React from "react"
-import { Box, Link } from "@chakra-ui/react"
+import { Box, Text } from "@chakra-ui/react"
 
 export const FooterContent = (props) => {
   return (
     <Box textAlign="center" {...props}>
       Built with{" "}
-      <span role="img" aria-label="heart">
+      <Text as="span" role="img" aria-label="heart">
         ❤️
-      </span>{" "}
+      </Text>{" "}
       by Gatsby WP Themes
     </Box>
   )

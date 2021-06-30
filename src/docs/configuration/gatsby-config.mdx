@@ -26,7 +26,7 @@ module.exports = config
 optional, `default: ""`
 
 Typically, your Gatsby website will be hosted at the root of its domain. In that case, the `pathPrefix` is an empty string, and you can skip this setting.  
-You will only need to set the `pathPrefix` if your gatsby website is hosted at something other than the root (/), e.g., `https://example.com/demo`.
+You will only need to set the `pathPrefix` if your gatsby website is hosted at something other than the root (`/`), e.g., `https://example.com/demo`.
 
 Adding the path prefix requires two steps:
 
@@ -59,7 +59,7 @@ Adding the path prefix requires two steps:
 
 Our themes support Google web fonts, under the hood we use the Gatsby plugin [`gatsby-plugin-webfonts`](https://www.gatsbyjs.com/plugins/gatsby-plugin-webfonts/). The `webfontsOptions` setting is passed to the `gatsby-plugin-webfonts` options.
 
-Let's imagine that you want to use Abril Fatface for headings and Lora for the body.
+Let's imagine that you want to use [Abril Fatface](https://fonts.google.com/specimen/Abril+Fatface) for headings and [Lora](https://fonts.google.com/specimen/Lora) for the body.
 
 ```javascript title=config.js
 const config = {
@@ -85,8 +85,8 @@ Now Abril Fatface and Lora (in the specified variants) are loaded and available 
 ```js title=configTypography.js
 const typographySettings = {
   fonts: {
-    body: "Lora, serif",
-    heading: "Abril Fatface, serif",
+    body: "Lora, serif", // I will use Lora for the body
+    heading: "Abril Fatface, serif", // and Abril Fatface for the headings
     // mono: 'SFMono-Regular, Menlo,Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
   },
   fontWeights: {
