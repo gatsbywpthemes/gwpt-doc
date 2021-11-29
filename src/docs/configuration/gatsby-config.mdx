@@ -3,8 +3,16 @@ title: Gatsby config.js
 description: Configure your Gatsby website via config.js
 ---
 
-The default options are listed below.
-We discuss each one in detail in the Options section.
+> In this section we cover the settings that are configurable in the `config.js` file located in the root of your project.
+
+You don't necessarily need to edit the `config.js` in order to have your site running. However, you will need to edit it if you want to do things like:
+
+- adding Google Analytics or Google Tag Manager,
+- activating the XML sitemap for your site,
+- pass settings to the `gatsby-source-wordpress` plugin that we use internally.
+
+Let's first have a look at the list of options with their default values.
+Below, we discuss each one in detail.
 
 ```javascript title=config.js
 const config = {
@@ -17,9 +25,20 @@ const config = {
   addSiteMap: false,
   siteMapOptions: {},
   developLimit: null,
+  gatsbySourceWordPressOptions: {},
+  createPages: true,
+  createPosts: true,
+  createCategories: true,
+  createTags: true,
+  createUsers: true,
+  withApollo: true,
 }
 module.exports = config
 ```
+
+> Besides that, in the `config.js` file, you can override some of the settings coming from your WordPress source site. Please head to the [Overriding WordPress Theme Options](/more/override-wp) for more details.
+
+Let's now discuss the available settings.
 
 ## `pathPrefix`
 
@@ -248,3 +267,55 @@ const config = {
 }
 module.exports = config
 ```
+
+---
+
+## `gatsbySourceWordPressOptions`
+
+optional, default: `{}`
+
+Our themes internally use the [`gatsby-source-wordpress`](https://www.gatsbyjs.com/plugins/gatsby-source-wordpress/) plugin that sources data from WordPress. With the `gatsbySourceWordPressOptions` setting you can pass options to this plugin. You can find the overview of the [available options here.](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/docs/plugin-options.md)
+
+```javascript title=config.js
+const config = {
+  // ...
+  gatsbySourceWordPressOptions: {
+    schema: {
+      perPage: 10,
+    },
+    type: {
+      MediaItem: {
+        localFile: {
+          requestConcurrency: 50,
+        },
+      },
+    },
+  },
+  // ...
+}
+module.exports = config
+```
+
+---
+
+## `createPages`
+
+optional, default: `true`
+
+With `createPages: false`, you can deactivate creating routes for the static pages fetched from the WordPress. Since the pages will not be created, make sure that your site does not link to them internally. In particular, you should not have links to pages withing your navigation menu.
+
+---
+
+## `createPosts`, `createCategories`, `createTags`, `createUsers`
+
+optional, default: `true`
+
+These options work alike `createPages` described above, each of them applying to their particular type of content.
+
+---
+
+## `withApollo`
+
+optional, default: `true`
+
+If you modify this option, make sure to provide some alternative for the Apollo Client that we're using internally. Otherwise your website may not work correctly.
