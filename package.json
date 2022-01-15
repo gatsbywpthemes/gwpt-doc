@@ -17,7 +17,7 @@
     "gatsby-plugin-remove-trailing-slashes": "^3.0.0",
     "gatsby-plugin-sitemap": "^3.0.0",
     "lunr": "^2.3.9",
-    "marked": "^2.0.3",
+    "marked": "^4.0.10",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
