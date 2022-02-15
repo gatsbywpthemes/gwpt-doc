@@ -26,7 +26,7 @@ const SearchResults = ({ results }) => {
       {results.length && <hr />}
     </>
   ) : (
-    <p>Aucun document ne correspond pas à la requête.</p>
+    <p>There is no results for this request, try something else.</p>
   )
 }
 
