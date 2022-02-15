@@ -44,7 +44,7 @@ Let's now discuss the available settings.
 
 optional, `default: ""`
 
-Typically, your Gatsby website will be hosted at the root of its domain. In that case, the `pathPrefix` is an empty string, and you can skip this setting.  
+Typically, your Gatsby website will be hosted at the root of its domain. In that case, the `pathPrefix` is an empty string, and you can skip this setting.
 You will only need to set the `pathPrefix` if your gatsby website is hosted at something other than the root (`/`), e.g., `https://example.com/demo`.
 
 Adding the path prefix requires two steps:
@@ -69,7 +69,7 @@ Adding the path prefix requires two steps:
 
 </div>
 
-> Sometimes, you might want to access your production site locally. In that case, you will have to serve it with the `--prefix-paths` flag, i.e., `gatsby serve --prefix-paths`  
+> Sometimes, you might want to access your production site locally. In that case, you will have to serve it with the `--prefix-paths` flag, i.e., `gatsby serve --prefix-paths`
 > Your production build will be available at `http://localhost:9000/demo`.
 
 ---
@@ -99,21 +99,28 @@ const config = {
 module.exports = config
 ```
 
-Now Abril Fatface and Lora (in the specified variants) are loaded and available in your project. You still have to specify how you want to use them in the `configTypography.js` file :
+Now Abril Fatface and Lora (in the specified variants) are loaded and available in your project. You still have to specify how you want to use them in the `tailwind.config.js` file :
 
-```js title=configTypography.js
-const typographySettings = {
-  fonts: {
-    body: "Lora, serif", // I will use Lora for the body
-    heading: "Abril Fatface, serif", // and Abril Fatface for the headings
-    // mono: 'SFMono-Regular, Menlo,Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+```js title=tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        body: "Lora, serif",
+        heading: "Abril Fatface,serif",
+      },
+      fontWeight: {
+        body: 400,
+        heading: "bold",
+        bold: 700,
+      },
+      lineHeight: {
+        body: 1.8,
+        heading: 1.4,
+        loose: 2,
+      },
+    },
   },
-  fontWeights: {
-    // body: 400,
-    heading: 400, // Abril Fatface comes as one-variant 400 font face
-    // bold: 700,
-  },
-  // ..
 }
 ```
 
