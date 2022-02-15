@@ -3,83 +3,9 @@ title: Shadowing
 description: How to shadow components in our theme.
 ---
 
-> The starters with the `-dev` suffix do not require shadowing. These starters do not use the theme from the npm package. Instead, the theme structure is replicated directly in the `src` folder. You can modify any of these files directly. This approach is recommended for **developers** who need to go much further with the customization.
-
-To override (shadow) the components, you will need to place the files you need to override into `src/@gatsby-wp-theme/gatsby-theme-{your-theme}`. It's already there, you don't need to create it.
+To override (shadow) the components, you will need to place the files you need to override into `src/@gatsby-wp-theme/gatsby-theme-{your-theme}`. This also work for plugins.
+We are using this method to style the components from the gatsby-plugin-wpcf7, gatsby-theme-wp-comments and gatsby-theme-wp-search
 
 > If you want to learn about shadowing, [check this tutorial](https://www.gatsbyjs.com/docs/themes/shadowing/) from the Gatsby documentation.
-
-## Example - Shadowing the footer content
-
-Let's modify the footer text in the `base` starter.
-The files structure in the `gatsby-theme-wp-base` theme is
-
-```bash title=@gatsbywpthemes/gatsby-theme-wp-base highlight={7}
-├── src
-│   └── components
-│       ├── archive
-│       ├── comments
-│       ├── footer
-│       │   ├── Footer.js
-│       │   ├── FooterContent.js # 👈 we will override this file
-│       │   └── index.js
-│       ├── header
-│       ├── ....
-└── ...
-```
-
-We will override the `FooterContent.js` file
-
-```js title=@gatsbywpthemes/gatsby-theme-wp-base/src/components/footer/Footer.js
-import React from "react"
-import { Box, Link } from "@chakra-ui/react"
-
-export const FooterContent = (props) => {
-  return (
-    <Box textAlign="center" {...props}>
-      © {new Date().getFullYear()} | Built with{" "}
-      <Link href="https://www.wpgraphql.com">WPGraphQL</Link> and{" "}
-      <Link href="https://www.gatsbyjs.org">Gatsby</Link>
-    </Box>
-  )
-}
-```
-
-You need to add the `FooterContent.js` file in your starter's `src/@gatsbywpthemes/gatsby-theme-wp-base/components/footer`
-
-Now, the structure or your starter should be as follows:
-
-```bash title=starter-base highlight={10-11}
-├── .env
-├── ...
-├── src
-│   ├── @gatsbywpthemes
-│   │   └── gatsby-theme-wp-base
-│   │       ├── chakra
-│   │       ├── utils
-│   │       └── components
-│   │           ├── Layout.js
-│   │           └── 🆕 footer
-│   │               └── 🆕 FooterContent.js
-│   └── styles
-└── ...
-```
-
-```js title=src/@gatsbywpthemes/gatsby-theme-wp-base/components/footer/Footer.js
-import React from "react"
-import { Box, Text } from "@chakra-ui/react"
-
-export const FooterContent = (props) => {
-  return (
-    <Box textAlign="center" {...props}>
-      Built with{" "}
-      <Text as="span" role="img" aria-label="heart">
-        ❤️
-      </Text>{" "}
-      by Gatsby WP Themes
-    </Box>
-  )
-}
-```
 
 > In the development mode, you will have to **restart the development server** to see any changes after changing the file structure in your starter's `src` folder.
