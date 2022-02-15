@@ -20,8 +20,6 @@
       link: "/configuration/wp"
     - label: "Gatsby config.js"
       link: "/configuration/gatsby-config"
-    - label: "Colors Configuration"
-      link: "/configuration/colors"
 
 - label: Features
   items:
