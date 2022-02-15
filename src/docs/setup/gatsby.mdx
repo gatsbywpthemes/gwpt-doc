@@ -9,14 +9,12 @@ To set up your Gatsby website, you might need to edit the configuration files lo
 
 - ✏️✏️✏️ `.env` - basic **mandatory** configuration
 - ✏️✏️ `config.js` - further configuration, general features
-- ✏️ `configColors.js` - if you want to change the theme colors
-- ✏️ `configSizes.js` - if you want to change some layout values (responsive breakpoints, container width, etc.)
-- ✏️ `configTypography.js` - if you want to modify the typography settings (font family, heading sizes etc.)
+- ✏️✏️ `tailwind.config.js` - Tailwind CSS configuration, here you can change colors, fonts, sizes and all options of the [tailwind theme](https://tailwindcss.com/docs/theme)
 
 <div class="small">
 
-> ✏️✏️✏️ - you have to edit this file  
-> ✏️✏️ - you will probably need to edit this file  
+> ✏️✏️✏️ - you have to edit this file
+> ✏️✏️ - you will probably need to edit this file
 > ✏️ - you might want to edit this file
 
 </div>
@@ -63,7 +61,7 @@ GATSBY_WP_URL=https://gatsby.example.com
 
 ### `GATSBY_MAILCHIMP_ENDPOINT`
 
-You can subscribe new email addresses to a Mailchimp email list with our Newsletter widget.  
+You can subscribe new email addresses to a Mailchimp email list with our Newsletter widget.
 To activate Mailchimp, assign your Mailchimp list endpoint URL to the environmental variable `GATSBY_MAILCHIMP_ENDPOINT`
 
 Under the hood, our themes use [`gatsby-mailchimp-plugin`](https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp) for the MailChimp subscriptions.
