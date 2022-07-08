@@ -25,8 +25,6 @@
   items:
     - label: "Contact Forms"
       link: "/features/contact-forms"
-    - label: Galleries
-      link: /features/galleries
     - label: "Code Highlighting"
       link: /features/code-highlighting
 - label: More

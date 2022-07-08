@@ -8,7 +8,7 @@ import {
 const SearchResults = ({ results }) => {
   return results.length ? (
     <>
-      <Heading as="h2">{results.length} documents trouvé(s)</Heading>
+      <Heading as="h2">{results.length} documents found</Heading>
       <ul>
         {results.map((result) => (
           <Item key={result.slug}>
