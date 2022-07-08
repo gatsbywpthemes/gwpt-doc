@@ -27,6 +27,8 @@
       link: "/features/contact-forms"
     - label: "Code Highlighting"
       link: /features/code-highlighting
+    - label: "ACF Builder"
+      link: /features/acf-builder
 - label: More
   items:
     - label: "Overriding WP Options"
