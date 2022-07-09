@@ -45,7 +45,7 @@ This plugins will make your experience more enjoyable
 ## Usage
 <img src="../assets/flex-content.png"/>
 
-- Choose the layout that you what to use.
+- Choose the layout that you want to use.
 - You can drag and drop layouts on the page.
 - Click on the pen icon to open the layout.
 - For each layout you will find 2 accordions tabs:
@@ -53,8 +53,10 @@ This plugins will make your experience more enjoyable
 <img src="../assets/settings.png"/>
 Here you can:
 - give an admin title to your layout
+- Give a unique ID, if you need to use it as an anchor for scrolling
 - Give a class to style it differently:
  you can also use tailwindcss classes, in this case, you will need to have them in your tailwind.config.js safelist, otherwise they will be purged by tailwindcss
+
  ``` javascript title="taiwlwind.config.js"
    safelist: [
     "md:py-20",
@@ -69,4 +71,4 @@ Here you can:
  ```
  #### Content
  <img src="../assets/settings.png"/>
- Here you can enter the specific content for each layout, and sometime have styling classes to for repeating elements.
+ Here you can enter the specific content for each layout, and sometimes have styling classes for repeating elements.
