@@ -31,8 +31,10 @@
   items:
     - label: "General Usage"
       link: "/acf-builder/general-usage"
-    - label: "Styling"
+    - label: "Styling Layouts"
       link: "/acf-builder/styling"
+    - label: "Shadowing Layouts"
+      link: "/acf-builder/shadowing-layouts"
     - label: "Content Block"
       link: "/acf-builder/content-block"
 
