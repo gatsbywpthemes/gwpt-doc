@@ -29,6 +29,8 @@
       link: /features/code-highlighting
 - label: "ACF Builder"
   items:
+    - label: "Philosophy"
+      link: "/acf-builder/philosophy"
     - label: "General Usage"
       link: "/acf-builder/general-usage"
     - label: "Styling Layouts"
