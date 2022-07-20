@@ -27,6 +27,19 @@
       link: "/features/contact-forms"
     - label: "Code Highlighting"
       link: /features/code-highlighting
+- label: "ACF Builder"
+  items:
+    - label: "Philosophy"
+      link: "/acf-builder/philosophy"
+    - label: "General Usage"
+      link: "/acf-builder/general-usage"
+    - label: "Styling Layouts"
+      link: "/acf-builder/styling"
+    - label: "Shadowing Layouts"
+      link: "/acf-builder/shadowing-layouts"
+    - label: "Content Block"
+      link: "/acf-builder/content-block"
+
 - label: More
   items:
     - label: "Overriding WP Options"
