@@ -3,4 +3,17 @@ title: Shadowing your layouts
 description: How to change your layouts html.
 ---
 
-In order to change the HTML
+In order to change the HTML/jsx of your file you will need to use [shadowing](/more/shadowing).
+
+In the Agency starter we have done it for ProjectsBlock.js.
+
+These are the steps to follow:
+- Go to nodes_modules/@gatsbywpthemes/gatsby-theme-acf-builder/src and copy the file that you need to modify.
+- Paste it in src/@gatsbywpthemes/gatsby-theme-acf-builder
+- correct the import path, for ex:
+``` javascript title=src/@gatsbywpthemes/gatsby-theme-acf-builder/ProjectsBlock.js
+import { HeadlineContent } from "./HeadlineContent";
+//becomes
+import { HeadlineContent } from "@gatsbywpthemes/gatsby-theme-acf-builder/src/HeadlineContent"
+```
+- Make the changes you need!
